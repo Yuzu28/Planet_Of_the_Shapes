@@ -1,14 +1,12 @@
 console.log('sup+++++++++++++++++++++')
 
-
-const CircleClass = require('./shapes');
-
-console.log(CircleClass)
-var circle = new CircleClass;
+console.dir(canvas)
+var circle = new Circle;
 
 
 function draw(){
-    circle.createCircle
+    context.fillStyle = "green";
+    circle.createCircle()
     //where we draw
     // context.drawImage(bgImage, 0,0);
     // context.drawImage(theHero, theHeroLoc.x, theHeroLoc.y);

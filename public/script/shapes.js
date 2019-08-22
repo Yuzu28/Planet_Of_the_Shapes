@@ -6,8 +6,8 @@ class Circle{
     constructor() {
         this.createCircle = () => {
             context.save();
-            context.translate(ship.pos.getX() >> 0, ship.pos.getY() >> 0);
-            context.rotate(ship.angle)
+            context.translate(0 >> 0, 0 >> 0);
+            context.rotate(0)
             context.strokeStyle = 'blue';
             context.lineWidth = (Math.random() > 0.9) ? 7 : 8;
             context.beginPath();
@@ -22,4 +22,3 @@ class Circle{
         }
     }
 }
-module.exports = Circle;
