@@ -1,0 +1,18 @@
+<% include head %>
+  
+  <body>
+    <div class="container">
+      <div class="row">
+          <div class="col col-12"><h1><%= title%></h1></div>
+          <% parsedData.forEach((movie)=> {%>
+            <div class="col col-lg-3 col-md-4 col-sm-6 col-xs-12 poster"><%=movie.title%>
+              <a href="/movie/<%= movie.id %>">
+                <img src="<%= imageBaseUrl + movie.poster_path%>">
+              </a>
+            </div>
+          <% }) %>
+      </div>
+      
+    </div> 
+  </body>
+</html>
