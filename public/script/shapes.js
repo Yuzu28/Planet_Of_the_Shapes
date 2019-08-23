@@ -2,6 +2,16 @@ console.log('sup+++++++++++++++++++++')
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext('2d');
 
+canvas.width = 800;
+canvas.height = 600;
+var backgroundImage = new Image();
+backgroundImage.src = "https://live.staticflickr.com/3760/12445539985_0e7a41547f_b.jpg"
+function draw(){
+    ctx.drawImage(backgroundImage,0,0)
+    requestAnimationFrame(draw);
+    }
+    draw();
+
 class Circle{
     constructor() {
         this.create = (x, y, radius, startRadius, endRadius) => {
@@ -39,14 +49,14 @@ class Triangle{
 class Pentagon{
     constructor() {
         this.create = (x,y) => {
-ctx.beginPath();
-ctx.moveTo(x+200,y+50);//x,y values to start at
-ctx.lineTo(x+150,y+100);//draws a line
-ctx.moveTo(x+200,y+50)
-ctx.lineTo(x+250,y+100);
-ctx.lineTo(x+250,y+150)
-ctx.lineTo(x+150,y+150)
-ctx.lineTo(x+150,y+100)
+        ctx.beginPath();
+        ctx.moveTo(x+200,y+50);//x,y values to start at
+        ctx.lineTo(x+150,y+100);//draws a line
+        ctx.moveTo(x+200,y+50)
+        ctx.lineTo(x+250,y+100);
+        ctx.lineTo(x+250,y+150)
+        ctx.lineTo(x+150,y+150)
+        ctx.lineTo(x+150,y+100)
 
 ctx.fillStyle="orange";//changed to fill
 ctx.fill()//fill() will only fill in a shape with one gap 
