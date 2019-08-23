@@ -2,10 +2,9 @@ console.log('sup+++++++++++++++++++++')
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext('2d');
 
-canvas.width = 800;
-canvas.height = 600;
-var backgroundImage = new Image();
-backgroundImage.src = "https://live.staticflickr.com/3760/12445539985_0e7a41547f_b.jpg"
+
+// var backgroundImage = new Image();
+// backgroundImage.src = "https://live.staticflickr.com/3760/12445539985_0e7a41547f_b.jpg"
 function draw(){
     ctx.drawImage(backgroundImage,0,0)
     requestAnimationFrame(draw);
