@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var http = require('../bin/www');
-var io = require('socket.io')(http);
+var UserIp;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/chat', function(req, res, next) {
+router.get('/chat', async function(req, res, next){
+  UserIp = await req.connection.remoteAddress
+  var data = await req
+  console.log(data)
+  console.log(`A User has Joined at: ${UserIp}`)
   res.render('chat');
 });
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-module.exports = router;
+module.exports = {router,UserIp};

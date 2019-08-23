@@ -4,16 +4,22 @@
     <title>Socket.IO chat</title>
     
     <link rel="stylesheet" href="/stylesheets/chat.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="/script/socketIO.js "></script>
+    <script src="/script/multiplayer.js "></script>
 
     </style>
   </head>
   <body>
+      <!-- div(class="row window chat-box-container")
+      form(id="chatBox" method="" )
+          input(id="chat" class="chat-box" type="text")
+          span
+              button(class="btn btn-primary" type='submit') Send -->
     <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+    <form id="chatBox" method="">
+      <input id="chat" autocomplete="off" type="text"/><span></span><button type="submit">Send</button>
     </form>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="/script/socketIO.js"></script>
   </body>
 </html>
