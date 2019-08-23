@@ -15,7 +15,9 @@
     "express-session": "^1.16.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "pg-promise": "^9.1.0",
-    "request": "^2.88.0"
+    "pg-promise": "^9.0.3",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0"
+
   }
 }
