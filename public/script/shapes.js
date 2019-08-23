@@ -1,20 +1,8 @@
 console.log('sup+++++++++++++++++++++')
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext('2d');
-
-
-// var backgroundImage = new Image();
-// backgroundImage.src = "https://live.staticflickr.com/3760/12445539985_0e7a41547f_b.jpg"
-function draw(){
-    ctx.drawImage(backgroundImage,0,0)
-    requestAnimationFrame(draw);
-    }
-    draw();
-
 class Circle{
     constructor() {
-        this.create = (x, y, radius, startRadius, endRadius) => {
-            ctx.fillStyle = 'green';
+        this.create = (x, y, angle, size) => {
+            ctx.rotate(angle * Math.PI /180)
             ctx.beginPath();
             ctx.arc(x, y, radius, startRadius, endRadius); // Outer circle
             ctx.fill();
@@ -45,6 +33,22 @@ class Triangle{
     }
 }
 
+class playerSquare{
+    constructor(x,y, size){
+        this.size = size;
+        this.angle= 0;
+        this.x = x+this.size/2;
+        this.y = y+this.size/2;
+        this.create = ()=>{
+            ctx.save();
+            ctx.translate(this.x+this.size/2,this.y+this.size/2);
+            ctx.rotate(this.angle)
+            ctx.translate(-(this.x+this.size/2),-(this.y+this.size/2));
+            ctx.strokeRect(this.x, this.y, this.size, this.size);
+            ctx.restore();
+        }
+    }
+}
 class Pentagon{
     constructor() {
         this.create = (x,y) => {
@@ -80,6 +84,7 @@ class Hexagon{
 
             
         }
+        
     }
 }
 
