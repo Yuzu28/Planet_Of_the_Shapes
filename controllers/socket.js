@@ -11,6 +11,10 @@ exports = module.exports = function(io){
         socket.on('sendMessage',broadcastMessageToServer);
       
         socket.on('kill', broadcastKillFeed);
+
+        socket.on('drawObject', drawObject);
+
+        socket.on('playerMove', playerMove)
       
         // socket.on('newGameRequest',newGameRequest);
         // socket.on('newGame',newGame);
@@ -22,27 +26,15 @@ exports = module.exports = function(io){
           socket.broadcast.to(server).emit("sendMessage",message);
         }
       
-        function broadcastKillFeed(server, moveData){
-          socket.broadcast.to(server).emit("move",moveData);
+        function broadcastKillFeed(server, killer, killed){
+          socket.broadcast.to(server).emit("killFeed",moveData);
         }
-        // function newGame(room){
-        //   io.to(room).emit("newGame");
-        // }
-      
-        // function newGameRequest(room){
-        //   if(room)
-        //     socket.broadcast.to(room).emit("newGameRequest");
-        // }
-      
-        // function joinRequestTo(name){
-        //   console.log('sendRequest to ' + name);
-        //   for(var i=0;i<users.length;i++){
-        //     if(users[i].name===name){
-        //       socket.broadcast.to(users[i].room).emit("joinRequestFrom",socket.id);
-        //       break;
-        //     }
-        //   }
-        // }
+
+        function playerMove(server, xy){
+            socket.broadcast.to(server).emit('playerMove', xy)
+        }
+
+        function drawObject(){}
       
         function joinServer(server){
           console.log("joined server" + server);
@@ -52,30 +44,7 @@ exports = module.exports = function(io){
             users.filter(user=>user.id == socket.id)[0].room = room;
           }
         }
-        // function sendName(name){
-        //   var isNameValid = true;
-        //   for(var i=0;i<users.length;i++){
-        //     if(users[i].name===name){
-        //       isNameValid = false;
-        //       socket.emit('nameError','Name is already existed, Try again');
-        //       return;
-        //     }
-        //   }
-        //   if(isNameValid){
-        //     var room = generateRoomId();
-        //     users.push({id:socket.id, name:name, room:room});
-        //     socket.join(room);
-        //     socket.emit("roomId",room);
-        //   } 
-        
       
-        // function joinRequestAnswer(answer,socketId){
-        //   var user = users.filter(user=>user.id == socket.id)[0];
-      
-        //   if(answer=="yes"){
-        //     socket.to(socketId).emit("joinRoom",user.room, user.name);
-        //   }
-        // }
         // function disconnect(){
         //   for(var i =0;i<users.length;i++){
         //     if(users[i].id == socket.id){

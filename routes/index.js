@@ -6,11 +6,11 @@ var UserIp;
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/chat', async function(req, res, next){
+router.get('/game', async function(req, res, next){
   UserIp = await req.connection.remoteAddress
   var data = await req
   console.log(data)
   console.log(`A User has Joined at: ${UserIp}`)
-  res.render('chat');
+  res.render('multiplayer');
 });
 module.exports = {router,UserIp};
