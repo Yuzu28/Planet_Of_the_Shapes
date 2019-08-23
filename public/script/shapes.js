@@ -1,24 +1,37 @@
 console.log('sup+++++++++++++++++++++')
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext('2d');
+canvas.width = 800;
+canvas.height = 600;
 
 
-// var backgroundImage = new Image();
-// backgroundImage.src = "https://live.staticflickr.com/3760/12445539985_0e7a41547f_b.jpg"
-function draw(){
-    ctx.drawImage(backgroundImage,0,0)
-    requestAnimationFrame(draw);
-    }
-    draw();
+
 
 class Circle{
-    constructor() {
-        this.create = (x, y, radius, startRadius, endRadius) => {
-            ctx.fillStyle = 'green';
-            ctx.beginPath();
-            ctx.arc(x, y, radius, startRadius, endRadius); // Outer circle
-            ctx.fill();
+    constructor(x, y, radius, startRadius, endRadius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.startRadius = startRadius
+        this.endRadius = endRadius;
+        this.direction = 1;
+        // this.hit = 0;
+        // this.level = 1;
+    }
+    move(){
+        this.x += 5 * this.direction * this.level;
+    }
+    draw(){
+        if(this.x > maxWidth){
+            this.direction = -1
+        }else if(this.x < 0){
+            this.direction = 1
         }
+        
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, this.startRadius, this.endRadius); // Outer circle
+        ctx.fill();
     }
 }
 class Square{
@@ -74,12 +87,15 @@ class Hexagon{
             ctx.lineTo(x+300,y+150);
             ctx.lineTo(x+250,y+150)
             ctx.lineTo(x+200,y+100)
-            
             ctx.fillStyle="gold";//changed to fill
-            ctx.fill()//fill() will only fill in a shape with one gap 
-
-            
+            ctx.fill()//fill() will only fill in a shape with one gap   
         }
+        
     }
 }
 
+
+var image = new Image()
+//start image loading
+image.src='http://pngriver.com/wp-content/uploads/2018/04/Download-Star-PNG-File.png'
+// 
