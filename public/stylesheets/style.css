@@ -1,13 +1,42 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: blanchedalmond;
+ 
+
 }
 
 a {
   color: #00B7FF;
 }
 canvas{
+  position: absolute;
   border:solid;
+  background-color: white;
+}
+#overlay{
+  position: relative;
+  border:solid;
+  width: 6005px; 
+  height: 6005px; 
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  
+}
+#overlay>div {
+  position: relative;
+  z-index: 1;
+  border: solid lightgray 1px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#player_view{
+  position: absolute;
+  width:inherit;
+  height:inherit;
+}
+
   /* background-color: blue; */
 }
 

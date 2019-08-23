@@ -1,8 +1,9 @@
 console.log('sup+++++++++++++++++++++')
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext('2d');
-canvas.width = 800;
-canvas.height = 600;
+
+// const canvas = document.getElementById("gameCanvas");
+// const ctx = canvas.getContext('2d');
+// canvas.width = 800;
+// canvas.height = 600;
 
 
 
@@ -24,6 +25,7 @@ class Circle{
             this.direction = -1
         }else if(this.x < 0){
             this.direction = 1
+
         }
     }
     draw(){
@@ -93,6 +95,22 @@ class Triangle{
     }
 }
 
+class playerSquare{
+    constructor(x,y, size){
+        this.size = size;
+        this.angle= 0;
+        this.x = x+this.size/2;
+        this.y = y+this.size/2;
+        this.create = ()=>{
+            ctx.save();
+            ctx.translate(this.x+this.size/2,this.y+this.size/2);
+            ctx.rotate(this.angle)
+            ctx.translate(-(this.x+this.size/2),-(this.y+this.size/2));
+            ctx.strokeRect(this.x, this.y, this.size, this.size);
+            ctx.restore();
+        }
+    }
+}
 class Pentagon{
     constructor(x,y) {
         this.x = x;
@@ -139,6 +157,7 @@ class Hexagon{
             ctx.fillStyle="gold";//changed to fill
             ctx.fill()//fill() will only fill in a shape with one gap   
         }
+
         move(){
             this.x += 20 * this.direction //* this.level;
             if(this.x > maxWidth){
@@ -147,6 +166,7 @@ class Hexagon{
                 this.direction = 1
         }
 }}
+
 
 var image = new Image()
 //start image loading
