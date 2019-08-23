@@ -19,81 +19,134 @@ class Circle{
         // this.level = 1;
     }
     move(){
-        this.x += 5 * this.direction * this.level;
-    }
-    draw(){
+        this.x += 5 * this.direction //* this.level;
         if(this.x > maxWidth){
             this.direction = -1
         }else if(this.x < 0){
             this.direction = 1
         }
+    }
+    draw(){
+       
         
         ctx.fillStyle = 'green';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, this.startRadius, this.endRadius); // Outer circle
         ctx.fill();
     }
-}
+};
+
 class Square{
-    constructor() {
-        this.create = (x, y, width, height) => {
-            ctx.fillStyle = 'red';
-            ctx.fillRect(x, y, width, height)
-            
-        }
+    constructor(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.direction = 1
     }
-}
+   
+    move(){
+        this.y += 5 * this.direction
+    }
+    draw(){
+        if(this.y > maxHeight){
+            this.direction = -1
+        }else if(this.y < 0){
+            this.direction = 1
+        }
+        
+        ctx.fillStyle = 'red';
+        ctx.fillRect(this.x, this.y, this.width, this.height)
+    }
+};
 
 class Triangle{
-    constructor() {
-        this.create = (x, y) => {
-
-            ctx.fillStyle ='blue'
-            ctx.beginPath();
-            ctx.moveTo(x+200,y+50);//x,y values to start at
-            ctx.lineTo(x+150,y+150);//draws a line
-            ctx.lineTo(x+250,y+150)
-            ctx.fill()
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.direction = 1;
+    }
+    draw(){
+        if(this.y > maxHeight){
+            this.direction = -1
+        }else if(this.y < 0){
+            this.direction = 1
         }
+
+        // if(this.x > maxWidth){
+        //     this.direction = -1
+        // }else if(this.x < 0){
+        //     this.direction = 1
+        // }
+
+
+        ctx.fillStyle ='blue'
+        ctx.beginPath();
+        ctx.moveTo(this.x+200,this.y+50);//x,y values to start at
+        ctx.lineTo(this.x+150,this.y+150);//draws a line
+        ctx.lineTo(this.x+250,this.y+150)
+        ctx.fill()
+    }
+    move(){
+        this.y += 5 * this.direction
+        this.x += 5 * this.direction 
     }
 }
 
 class Pentagon{
-    constructor() {
-        this.create = (x,y) => {
-        ctx.beginPath();
-        ctx.moveTo(x+200,y+50);//x,y values to start at
-        ctx.lineTo(x+150,y+100);//draws a line
-        ctx.moveTo(x+200,y+50)
-        ctx.lineTo(x+250,y+100);
-        ctx.lineTo(x+250,y+150)
-        ctx.lineTo(x+150,y+150)
-        ctx.lineTo(x+150,y+100)
-
-ctx.fillStyle="orange";//changed to fill
-ctx.fill()//fill() will only fill in a shape with one gap 
-            
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+        this.direction = 1;
         }
-    }
+        draw(){
+        ctx.beginPath();
+        ctx.moveTo(this.x+200,this.y+50);//x,y values to start at
+        ctx.lineTo(this.x+150,this.y+100);//draws a line
+        ctx.moveTo(this.x+200,this.y+50)
+        ctx.lineTo(this.x+250,this.y+100)
+        ctx.lineTo(this.x+250,this.y+150)
+        ctx.lineTo(this.x+150,this.y+150)
+        ctx.lineTo(this.x+150,this.y+100)
+
+        ctx.fillStyle="orange";//changed to fill
+        ctx.fill()//fill() will only fill in a shape with one gap 
+        }
+        move(){
+            if(this.x != maxWidth){
+                this.x+=10
+            }else{
+                this.x=-200
+            }
+        }
 }
 
+
 class Hexagon{
-    constructor() {
-        this.create = (x, y) => {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.direction =1;
+    }
+        draw(){
             ctx.beginPath();
-            ctx.moveTo(x+250,y+50);//x,y values to start at
-            ctx.lineTo(x+300,y+50);//draws a line
-            ctx.lineTo(x+350,y+100)
-            ctx.lineTo(x+300,y+150);
-            ctx.lineTo(x+250,y+150)
-            ctx.lineTo(x+200,y+100)
+            ctx.moveTo(this.x+250,this.y+50);//x,y values to start at
+            ctx.lineTo(this.x+300,this.y+50);//draws a line
+            ctx.lineTo(this.x+350,this.y+100)
+            ctx.lineTo(this.x+300,this.y+150);
+            ctx.lineTo(this.x+250,this.y+150)
+            ctx.lineTo(this.x+200,this.y+100)
             ctx.fillStyle="gold";//changed to fill
             ctx.fill()//fill() will only fill in a shape with one gap   
         }
-        
-    }
-}
-
+        move(){
+            this.x += 20 * this.direction //* this.level;
+            if(this.x > maxWidth){
+                this.direction = -1
+            }else if(this.x < 0){
+                this.direction = 1
+        }
+}}
 
 var image = new Image()
 //start image loading
