@@ -104,6 +104,8 @@ class Triangle{
         ctx.lineTo(this.x+150,this.y+150);//draws a line
         ctx.lineTo(this.x+250,this.y+150)
         ctx.fill()
+
+        
     }
     move(){
         this.y += 5 * this.direction
@@ -175,33 +177,33 @@ class Hexship{
         this.x = x;
         this.y = y;
         this.radius = 50;
+        this._x = this.x+50;
+        this._y = this.y+50
+        //this.distance = Math.sqrt(Math.pow(this.x+50 ,2) +  Math.pow(this.y+550 ,2));
     }
     draw(){
         ctx.beginPath();
         // ctx.rotate(this.angle)
-        ctx.moveTo(this.x + 50,this.y+ 500);
-        ctx.lineTo(this.x + 100,this.y+550)
-        ctx.lineTo(this.x + 50,this.y+ 600)
-        ctx.lineTo(this.x + 0,this.y+550)
+        ctx.moveTo(this.x,this.y-50);
+        ctx.lineTo(this.x + 50,this.y)
+        ctx.lineTo(this.x,this.y+ 50)
+        ctx.lineTo(this.x -50,this.y)
         ctx.fillStyle="#55694e"
         ctx.fill()
         ctx.stokeStyle= "pink"
         ctx.beginPath()
-        ctx.arc(this.x+50, this.y+550, this.radius, 0, Math.PI * 2)//50,550
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)//50,550
         ctx.stroke()
         
 
     }
 }
-Hexship.prototype.isHitBy = function(x, y){
-    var distance = Math.sqrt(Math.pow(x - this.x+50 ,2) +  Math.pow(y + this.y+550 ,2))//pythorean theorem a^2 + b^2 = c^2
-    return distance <= this.radius
-}
 
-var image = new Image()
-//start image loading
-image.src='http://pngriver.com/wp-content/uploads/2018/04/Download-Star-PNG-File.png'
-// 
+    
+    
+
+
+
 // class Hexship{
 //     constructor(x,y){
 //         this.x = x;

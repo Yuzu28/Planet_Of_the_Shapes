@@ -58,14 +58,3 @@ addEventListener('keydown', (e)=>{
 })
 ////////////////////////////////////////////////
 
-canvas.addEventListener('mousemove', function(e){
-
-    var cvsBounds = canvas.getBoundingClientRect(); //x and y pos for where the cvs is on the page
-    var clickX = e.pageX - cvsBounds.left;
-    var clickY = e.pageY - cvsBounds.top;
-
-    if (diamond.isHitBy(clickX,clickY)){
-        console.log('diamond hit')
-    }
-
-})
