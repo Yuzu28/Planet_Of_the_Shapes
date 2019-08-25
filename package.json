@@ -15,7 +15,6 @@
     "express": "~4.16.1",
     "express-session": "^1.16.2",
     "http-errors": "~1.6.3",
-    "loading-spinner": "^1.2.1",
     "morgan": "~1.9.1",
     "pg-promise": "^9.0.3",
     "request": "^2.88.0",
