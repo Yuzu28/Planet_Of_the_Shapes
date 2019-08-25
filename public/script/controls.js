@@ -7,7 +7,7 @@
 // })
 
 addEventListener('keypress', (e)=>{
-    console.log(e)
+    // console.log(e)
     if(e.keyCode===40||e.keyCode===115){
         console.log("Guy go backwards")
         player.x -=  10 * Math.cos(player.angle)
@@ -15,13 +15,16 @@ addEventListener('keypress', (e)=>{
         
     }else if(e.keyCode===38||e.keyCode===119){
         console.log("Guy go fowards") 
-        player.x +=  10 * Math.cos(player.angle)
-        player.y +=  10 * Math.sin(player.angle)
+        player.x +=  20 * Math.cos(player.angle)
+        player.y +=  20 * Math.sin(player.angle)
     }if(e.keyCode===37||e.keyCode===97){
-        player.angle -= 0.1;
+        player.angle -= Math.PI/4;
     }else if(e.keyCode===39||e.keyCode===100){
-        player.angle += 0.1;
+        player.angle += Math.PI/4;
     }
+})
+
+
 
     
     // }if(e.keyCode===37||e.keyCode===68){
@@ -31,5 +34,27 @@ addEventListener('keypress', (e)=>{
     //     console.log("go Left")
     //     theHeroLoc.x -=10
     // }
-
+///////////////////////////////////////////////
+// var upRight;
+// var upLeft;
+// var downRight;
+// var downLeft;
+addEventListener('keydown', (e)=>{
+    // console.log(e.keyCode)
+    if(e.keyCode===38){//UP
+        diamond.y -= 50
+    }
+    if(e.keyCode===40){//DOWN
+        diamond.y += 50
+    }
+    if(e.keyCode===39){//Right
+        diamond.x += 50
+    }
+    if(e.keyCode===37){//Left
+        diamond.x -= 50
+    }
+    
+     
 })
+////////////////////////////////////////////////
+
