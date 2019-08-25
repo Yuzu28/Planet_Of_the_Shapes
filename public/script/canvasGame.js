@@ -1,10 +1,10 @@
 // console.log('sup+++++++++++++++++++++')
 
 // console.dir(canvas)
-var circle = new Circle(50, 50);
+var circle = new Circle(50, 350);
 var square = new Square(200, 50);
 var triangle = new Triangle(300, 100);
-var pentagon = new Pentagon(250, 50);
+var pentagon = new Pentagon(250, 250);
 var hexagon = new Hexagon(250,50);
 var maxWidth = canvas.width;
 var maxHeight = canvas.height; 
