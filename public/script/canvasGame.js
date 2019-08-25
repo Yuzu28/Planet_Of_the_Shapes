@@ -32,27 +32,27 @@ function draw(){
     ////////COLLISION DETECTION/////////////////////////////////////
         // console.log(getDistance(diamond.x, diamond.y,hexagon.x, hexagon.y))
     ///CIRCLE V. DIAMOND(PLAYEr)
-    if(getDistance(diamond.x, diamond.y,circle.x, circle.y) <= 100){
+    if(getDistance(diamond.x, diamond.y,circle.x, circle.y) <= 99){
         console.log("YOU LOSE")
         diamond.draw = console.log('GAME OVER')
     }
     //TRIANGLE
-    if(getDistance(diamond.x, diamond.y,triangle.x, triangle.y) <= 100){
+    if(getDistance(diamond.x, diamond.y,triangle.x, triangle.y) <= 99){
         console.log("YOU LOSE")
         diamond.draw = console.log('GAME OVER')
     }
     //SQUARE
-    if(getDistance(diamond.x, diamond.y,square.x, square.y) <= 100){
+    if(getDistance(diamond.x, diamond.y,square.x, square.y) <= 99){
         console.log("YOU LOSE")
         diamond.draw = console.log('GAME OVER')
     }
     //PENTAGON
-    if(getDistance(diamond.x, diamond.y,pentagon.x, pentagon.y) <= 100){
+    if(getDistance(diamond.x, diamond.y,pentagon.x, pentagon.y) <= 99){
         console.log("YOU LOSE")
         diamond.draw = console.log('GAME OVER')
     }
      //PENTAGON
-    if(getDistance(diamond.x, diamond.y,hexagon.x, hexagon.y) <= 100){
+    if(getDistance(diamond.x, diamond.y,hexagon.x, hexagon.y) <= 99){
         console.log("YOU LOSE")
         diamond.draw = console.log('GAME OVER')
     }
