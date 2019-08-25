@@ -7,8 +7,18 @@
     <title>Planet Of The Shapes</title>
 </head>
 <body>
-    <div id="loader">
-        <img src="giphylogo.gif" width="30%"/>
-    </div>
+    <!-- <iframe src="login.html"></iframe> -->
 </body>
+<script type="text/javascript">
+                <div id="loader">
+                    <img src="giphylogo.gif"  width="80%"/>
+                </div>
+    var loader = document.getElementById("loader");
+    window.addEventListener("load", function(){
+        loader.style.height= "100px";
+        loader.style.width= "100px";
+        loader.style.borderRadius= "50px";
+        // loader.style.visibility= "hidden";
+    });
+</script>
 </html>
