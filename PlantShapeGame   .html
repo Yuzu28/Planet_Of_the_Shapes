@@ -4,11 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <title>Planet Of the Shapes</title>
-    <style></style>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        canvas{
+
+        background-image:url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+}
+        #canvas{
+            margin: 20px;
+            border: 1px solid orange;
+        }
+
+        #startBtn{
+            position: absolute;
+            top: 400px;
+            left: 300px;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+    
+
+     .instructions {
+        position: absolute;
+        box-sizing: border-box;
+        display: none;
+        background: black;
+        color: white;
+        max-width: 500px;
+        max-height: 200px;
+        margin: auto;
+        font-size: 35px;
+        border: 10px solid white;
+        text-align: center;
+      }
+
+      .instructions {
+        padding-top: 20px;
+      }
+
+      
+
+     .instructions.active {
+        display: block;
+      }
+
+      #game-over {
+            display: none;
+            text-align: center;
+            font-size: 38px;
+            /* padding-top: 92px; */
+            /* z-index: 1; */
+            /* width: 600px;
+            height: 360px; */
+            overflow: auto;
+            top: 30%;
+            left: 20%;
+            color: white;
+            /* margin: auto; */
+            position: absolute;
+        }
+
+    .button {
+            background-color: purple;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+  
+
+
+        
+      #startGame{
+            /* display: none; */
+            text-align: center;
+            font-size: 38px;
+            /* padding-top: 92px; */
+            /* z-index: 1; */
+            /* width: 600px;
+            height: 360px; */
+            overflow: auto;
+            top: 30%;
+            left: 20%;
+            color: white;
+            /* margin: auto; */
+            position: absolute;
+        }
+
+    /* .goPlay {
+            background-color: purple;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        } */
+      
+       
+    
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+
+    <script src="JS/soundEffect.js"></script>
+
 </head>
 
+
+
 <body>
+
+        
     <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <div id="startGame">
+
+            <a href="javascript:void(0)" class="button play">Click Start to Play</a>
+            
+          </div>
+
+    <div id="game-over">
+            <h2>Your Score is <span id="score"></span> </h2>
+
+            <a href="javascript:void(0)" class="button restart">Try again?</a>
+            
+          </div>
+    
+
+
     <script>
         const FPS = 30; // frames per second
         const FRICTION = 0.7; // friction coefficient of space (0 = no friction, 1 = lots of friction)
@@ -19,11 +155,11 @@
         const bulletMax = 10; // number of bullets
         const bulletSpeed = 500; // bullet speed/s
 
-        const largeShapePoint = 20; // points scored for a large asteroid
-        const mediumShapePoint = 30; // points scored for a medium asteroid
-        const smallShapePoint = 50; // points scored for a small asteroid
+        const largeShapePoint = 20; // points scored for a big shape
+        const mediumShapePoint = 30; // points scored for a med shape
+        const smallShapePoint = 50; // points scored for a small shape
 
-        const shapeNum = 3; // starting number of shapes when a user play
+        const shapeNum = 1; // starting number of shapes when a user play
         const shapeSize = 100; // in pixels
         const shapeSpeed = 50; // max  speed of shape in pixels per second was 50*****400 hard
 
@@ -31,7 +167,7 @@
 
         const ShipBlinkDur = 0.1; // duration in seconds of a single blink during ship's invisibility
         const selfDestruck = 0.3; // duration of the ship's explosion in seconds
-        const invisibility  = 3; // duration of the ship's invisibility in seconds
+        const invisibility  = 0.4; // duration of the ship's invisibility in seconds
         const shipSize = 30; // ship height in pixels
         const shipAccel = 5; // acceleration of the ship in pixels per second per second
         const turnSpeed = 360; // turn speed in degrees per second
@@ -47,15 +183,22 @@
 
         var canv = document.getElementById("canvas");
         var ctx = canv.getContext("2d");
+        // var startBtn = document.getElementById('startBtn');
 
 
+          $('.play').click(function() {
+            $('#startGame').hide();
+            newGame();
+           
 
-
+        }); 
+        
+        
 
 
         // set up the game parameters
-        var level, lives, container, score, scoreHigh, ship, text, textAlpha;
-        newGame();
+        // var level, lives, container, score, scoreHigh, ship, text, textAlpha;
+        // newGame();
 
         // set up event handlers
         document.addEventListener("keydown", keyDown);
@@ -90,13 +233,18 @@
             if (r == Math.ceil(shapeSize/ 2)) { // large asteroid
                 container.push(newShape(x, y, Math.ceil(shapeSize / 4)));
                 container.push(newShape(x, y, Math.ceil(shapeSize / 4)));
+                shapeSplit.play();
                 score += largeShapePoint;
             } else if (r == Math.ceil(shapeSize / 4)) { // medium asteroid
                 container.push(newShape(x, y, Math.ceil(shapeSize / 8)));
                 container.push(newShape(x, y, Math.ceil(shapeSize / 8)));
+                shapeSplit.play();
+
                 score += mediumShapePoint;
             } else {
                 score += smallShapePoint;
+                lastShapeGone.play();
+
             }
 
             // check high score
@@ -112,6 +260,7 @@
             if (container.length == 0) {
                 level++;
                 newLevel();
+                passlev.play();
             }
         }
 
@@ -122,7 +271,8 @@
         function drawShip(x, y, a, colour = "white") {
             ctx.beginPath();
             ctx.strokeStyle = colour;
-            ctx.lineWidth = shipSize / 20;
+            ctx.lineWidth = 4;
+            // shipSize / 20
             ctx.beginPath();
             ctx.moveTo( // nose of the ship
                 x + 4 / 3 * ship.r * Math.cos(a),
@@ -148,12 +298,20 @@
 
         function explodeShip() {
             ship.explodeTime = Math.ceil(selfDestruck  * FPS);
+            crashexplo.play(); //sound when the ship self destruckt
         }
+
+    
+        
 
         function gameOver() {
             ship.dead = true;
-            text = "Mission Failed";
-            textAlpha = 1.0;
+            text = "Mission Failed ";
+            myy.play();
+
+            overPopUp()
+
+            
         }
 
         function keyDown(/** @type {KeyboardEvent} */ ev) {
@@ -164,7 +322,7 @@
 
             switch(ev.keyCode) {
                 case 32: // space bar: shooting
-                    shootLaser();
+                    shootingAwsomeBullets();
                     break;
                 case 37: // left arrow 
                     ship.rot = turnSpeed / 180 * Math.PI / FPS;
@@ -247,6 +405,33 @@
 
             newLevel();
         }
+        
+        //troll level
+
+        // function bosslevel() {
+        //     level = 0;
+        //     lives = startingLife;
+        //     shapeNum = 100;
+        //     score = 0;
+        //     ship = newShip();
+
+        //     // get the high score from local storage
+        //     var scoreStr = localStorage.getItem(SAVE_KEY_SCORE);
+        //     if (scoreStr == null) {
+        //         scoreHigh = 0;
+        //     } else {
+        //         scoreHigh = parseInt(scoreStr);
+        //     }
+
+        //     newLevel();
+        // }
+
+        function overPopUp() {
+                // stop = true;
+                $('#score').html(score);
+                $('#game-over').show();
+                
+        }
 
         function newLevel() {
             text = "Level " + (level + 1);
@@ -275,7 +460,7 @@
             }
         }
 
-        function shootLaser() {
+        function shootingAwsomeBullets() {
             // create the bullet 
             if (ship.canShoot && ship.lasers.length < bulletMax ) {
                 ship.lasers.push({ // from the nose of the ship
@@ -286,6 +471,7 @@
                     dist: 0,
                     explodeTime: 0
                 });
+                bulletSound.play()
             }
 
             // prevent further shooting lol
@@ -293,8 +479,12 @@
         }
 
         function update() {
+
+
             var blinkOn = ship.blinkNum % 2 == 0;
             var exploding = ship.explodeTime > 0;
+
+
 
             // draw space
             ctx.fillStyle = "black";
@@ -350,6 +540,7 @@
             if (ship.thrusting && !ship.dead) {
                 ship.thrust.x += shipAccel * Math.cos(ship.a) / FPS;
                 ship.thrust.y -= shipAccel * Math.sin(ship.a) / FPS;
+                engine.play(); //start the sound of the engine
 
                 // ship engine
                 if (!exploding && blinkOn) {
@@ -376,6 +567,7 @@
             } else {
                 ship.thrust.x -= FRICTION * ship.thrust.x / FPS;
                 ship.thrust.y -= FRICTION * ship.thrust.y / FPS;
+                engine.stop();
             }
             
             if (!exploding) {
@@ -428,10 +620,10 @@
             }
             
             // show s
-            if (dot) {
-                ctx.fillStyle = "red";
-                ctx.fillRect(ship.x - 1, ship.y - 1, 2, 2);
-            }
+            // if (dot) {
+            //     ctx.fillStyle = "green";
+            //     ctx.fillRect(ship.x - 1, ship.y - 1, 2, 2);
+            // }
 
             // draw bullet
             for (var i = 0; i < ship.lasers.length; i++) {
@@ -456,40 +648,47 @@
                     ctx.fill();
                 }
             }
-
+            // ctx.fillText("Score: " + score, canv.width - shipSize / 2, shipSize);
+            
             // draw the game text
             if (textAlpha >= 0) {
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
-                ctx.fillStyle = "rgba(255, 255, 255, " + textAlpha + ")";
-                ctx.font = "small-caps " + textsize+ "px dejavu sans mono";
-                ctx.fillText(text, canv.width / 2, canv.height * 0.75);
-                textAlpha -= (1.0 / textFading / FPS);
+                ctx.fillStyle = "white";
+                ctx.font = textsize+ "px 'Lexend Peta', sans-serif";
+                ctx.fillText(text, canv.width / 2, canv.height * 0.1);
+
+                // ctx.fillText(text, canv.width / 2, canv.height * 0.75);
+                // ctx.fillText(text, canv.width - shipSize / 2, shipSize);
+                // textAlpha -= (1.0 / textFading / FPS);
             } else if (ship.dead) {
                 // after "game over" fades, start a new game
                 newGame();
+                //add event listener to here click to start a new game
             }
 
             // draw the lives
-            var lifeColour;
+            
             for (var i = 0; i < lives; i++) {
-                lifeColour = exploding && i == lives - 1 ? "red" : "white";
+                lifeColour = exploding && i == lives - 1 ? "red" : "yellow"; //start to disappear once you are killed
                 drawShip(shipSize + i * shipSize * 1.2, shipSize, 0.5 * Math.PI, lifeColour);
+                
             }
 
             // draw the score
             ctx.textAlign = "right";
             ctx.textBaseline = "middle";
             ctx.fillStyle = "red";
-            ctx.font = textsize + "px dejavu sans mono";
-            ctx.fillText(score, canv.width - shipSize / 2, shipSize);
+            ctx.font = 40 + "px dejavu sans mono";
+            // ctx.fillText("Score: " + score, canv.width / 2, shipSize)
+            ctx.fillText("Score: " + score, canv.width - shipSize / 2, shipSize);
 
             // draw the high score
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillStyle = "white";
-            ctx.font = (textsize * 0.75) + "px dejavu sans mono";
-            ctx.fillText("BEST " + scoreHigh, canv.width / 2, shipSize);
+            // ctx.textAlign = "center";
+            // ctx.textBaseline = "middle";
+            // ctx.fillStyle = "white";
+            // ctx.font = (textsize * 0.75) + "px dejavu sans mono";
+            // ctx.fillText("BEST " + scoreHigh, canv.width / 2, shipSize);
 
 
             var ax, ay, ar, lx, ly;
@@ -579,7 +778,7 @@
                 if (ship.lasers[i].explodeTime > 0) {
                     ship.lasers[i].explodeTime--;
 
-                    // destroy the laser after the duration is up
+                    // destroy  after the duration is up
                     if (ship.lasers[i].explodeTime == 0) {
                         ship.lasers.splice(i, 1);
                         continue;
@@ -627,9 +826,33 @@
 
 
 
+ 
+      
+
+        $('.restart').click(function() {
+            $('#game-over').hide();
+            newGame();
+            // pauseAudio()
+
+        });
 
         
     </script>
+    
+
+
+
+
+<div class="instructions active">
+        Press LEFT, and RIGHT to turn, and UP to propel.
+        <br>
+        Press SPACE to fire bullets.
+        
+    </div>
+
+  
+    
+
 </body>
 
 </html>
