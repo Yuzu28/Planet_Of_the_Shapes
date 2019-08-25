@@ -57,6 +57,7 @@ class Square{
     constructor(x, y) {
         this.x = x;
         this.y = y;
+        this.radius =50;
         this.width = 100;
         this.height = 100;
         this.direction = 1
@@ -73,7 +74,10 @@ class Square{
         }
         
         ctx.fillStyle = 'red';
-        ctx.fillRect(this.x, this.y, this.width, this.height)
+        ctx.fillRect(this.x-50, this.y-50, this.width, this.height)
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        //ctx.stroke()
     }
 };
 
@@ -82,6 +86,7 @@ class Triangle{
     constructor(x, y) {
         this.x = x;
         this.y = y;
+        this.radius=50
         this.direction = 1;
     }
     draw(){
@@ -100,10 +105,13 @@ class Triangle{
 
         ctx.fillStyle ='blue'
         ctx.beginPath();
-        ctx.moveTo(this.x+200,this.y+50);//x,y values to start at
-        ctx.lineTo(this.x+150,this.y+150);//draws a line
-        ctx.lineTo(this.x+250,this.y+150)
+        ctx.moveTo(this.x,this.y-50);//x,y values to start at
+        ctx.lineTo(this.x-50,this.y+50);//draws a line
+        ctx.lineTo(this.x+50,this.y+50)
         ctx.fill()
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        // ctx.stroke()
 
         
     }
@@ -119,20 +127,23 @@ class Pentagon{
     constructor(x,y) {
         this.x = x;
         this.y = y;
+        this.radius = 50
         this.direction = 1;
         }
         draw(){
         ctx.beginPath();
-        ctx.moveTo(this.x+200,this.y+50);//x,y values to start at
-        ctx.lineTo(this.x+150,this.y+100);//draws a line
-        ctx.moveTo(this.x+200,this.y+50)
-        ctx.lineTo(this.x+250,this.y+100)
-        ctx.lineTo(this.x+250,this.y+150)
-        ctx.lineTo(this.x+150,this.y+150)
-        ctx.lineTo(this.x+150,this.y+100)
-
+        ctx.moveTo(this.x+50,this.y);//x,y values to start at
+        ctx.lineTo(this.x-50,this.y);//draws a line
+        ctx.moveTo(this.x,this.y-50)
+        ctx.lineTo(this.x+50,this.y)
+        ctx.lineTo(this.x+50,this.y+50)
+        ctx.lineTo(this.x-50,this.y+50)
+        ctx.lineTo(this.x-50,this.y)
         ctx.fillStyle="orange";//changed to fill
-        ctx.fill()//fill() will only fill in a shape with one gap 
+        ctx.fill() 
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        //ctx.stroke()
         }
         move(){
             if(this.x != maxWidth){
@@ -149,18 +160,22 @@ class Hexagon{
     constructor(x, y) {
         this.x = x;
         this.y = y;
+        this.radius=50
         this.direction =1;
     }
         draw(){
             ctx.beginPath();
-            ctx.moveTo(this.x+250,this.y+50);//x,y values to start at
-            ctx.lineTo(this.x+300,this.y+50);//draws a line
-            ctx.lineTo(this.x+350,this.y+100)
-            ctx.lineTo(this.x+300,this.y+150);
-            ctx.lineTo(this.x+250,this.y+150)
-            ctx.lineTo(this.x+200,this.y+100)
-            ctx.fillStyle="gold";//changed to fill
-            ctx.fill()//fill() will only fill in a shape with one gap   
+            ctx.moveTo(this.x-25,this.y-50);//x,y values to start at
+            ctx.lineTo(this.x+25,this.y-50);//draws a line
+            ctx.lineTo(this.x+75,this.y)
+            ctx.lineTo(this.x+25,this.y+50);
+            ctx.lineTo(this.x-25,this.y+50)
+            ctx.lineTo(this.x-75,this.y)
+            ctx.fillStyle="gold";
+            ctx.fill()
+            ctx.beginPath()
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+            //ctx.stroke()
         }
 
         move(){
@@ -193,7 +208,7 @@ class Hexship{
         ctx.stokeStyle= "pink"
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)//50,550
-        ctx.stroke()
+        // ctx.stroke()
         
 
     }
