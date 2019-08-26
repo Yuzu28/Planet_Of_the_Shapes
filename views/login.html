@@ -1,29 +1,36 @@
-<form action="/register" method="POST">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Planet of The Shapes</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<form action="/users/loginProcess" method="post">
     <section>
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6">
               <div class="row">
                 <div class="col text-center">
-                  <h1>Register</h1>
-                  <p class="text-h3">Welcome to Planet of the Shapes! </p>
+                  <h1>Login</h1>
+                  <p class="text-h3">Welcome to Planet of The Shapes </p>
                 </div>
               </div>
               <div class="row align-items-center">
                 <div class="col mt-4">
-                  <input type="text" name= "displayname" class="form-control" placeholder="Display Name">
+                  <input type="text" name="username" class="form-control" placeholder="User Name">
                 </div>
               </div>
               <div class="row align-items-center mt-4">
                 <div class="col">
                   <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
-                <div class="col">
-                  <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
-                </div>
               </div>
               <div class="row justify-content-start mt-4">
-    
                   <input type="submit" class="btn btn-primary mt-4" />
                 </div>
               </div>
@@ -31,4 +38,5 @@
           </div>
         </div>
       </section>
-</form>
+    </form>
+</html>

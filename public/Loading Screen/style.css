@@ -1,10 +1,20 @@
  body{
      margin: 0;
      padding: 0;
+     display: flex;
+     justify-content: center;
  }
-#loader{
-    height: 1500px;
-    width: 1500px;
+ script{
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+ }
+loader{
+    margin: auto;
+    text-align: center;
+    height: 500px;
+    width: 500px;
     background-color: black;
     position: fixed;
     top: 50%;
@@ -12,11 +22,13 @@
     transform: 
     translate(-50%,-50%);
     z-index: 999;
+
+    
 }
-#loader img{
+/* #loader img{
     position: absolute;
     top: 50%;
     left: 50%;
     transform:
-    translate(-50%,-50%);
-}
+    translate(-50%,-50%); */
+/* } */

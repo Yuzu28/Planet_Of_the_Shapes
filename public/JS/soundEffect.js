@@ -20,32 +20,26 @@ var engine = new nonstop("sound/jetengine.wav", 1, 0.3);
 var passlev = new nonstop("sound/pass.wav", 1, 0.3);
 
 //background music
-var music = new Music("sound/afraid.mp3", "sound/afraid.mp3");
-// var myy = new nonstop("sound/afraid.mp3");
-var myy = new nonstop("sound/depress.mp3",1,0.2);
+var myy = new nonstop("sound/depress.mp3",1,0.4);
 
 
-
-//non ending loop for a sound track
-myAudio = new Audio("sound/afraid.mp3"); 
+//gameplay music
+//non ending loop for a sound track......use .pause() to stop the audio
+var myAudio = new Audio("sound/afraid.mp3"); 
 if (typeof myAudio.loop == 'boolean')
 {
     myAudio.loop = true;
 }
-else
+else 
 {
     myAudio.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
+       
     }, false);
 }
 
-function pauseAudio() { 
-    myy.pause();
-    myy.currentTime = 0;
-  } 
-
-
+//function music for gameover, shooting, crashing, and flying
 function nonstop(src, maxs =1, volumeLel = 1.0){
     this.go = 0
     this.emptyArray = [];
@@ -66,46 +60,5 @@ function nonstop(src, maxs =1, volumeLel = 1.0){
     }
 }
 
-// function music(element){
-//     this.sound = new Audio(element);
-//     this.play();
-// }
 
 
-
-
-
-
-
-
-function Music(srcLow, srcHigh) {
-    this.soundLow = new Audio(srcLow);
-    this.soundHigh = new Audio(srcHigh);
-    this.low = true;
-    this.tempo = 1.0; // seconds per beat
-    this.beatTime = 0; // frames left until next beat
-
-    this.play = function() {
-        if (true) {
-            if (this.low) {
-                this.soundLow.play();
-            } else {
-                this.soundHigh.play();
-            }
-            this.low = !this.low;
-        }
-    }
-
-    this.setAsteroidRatio = function(ratio) {
-        this.tempo = 1.0 - 0.75 * (1.0 - ratio);
-    }
-
-    this.tick = function() {
-        if (this.beatTime == 0) {
-            this.play();
-            this.beatTime = Math.ceil(this.tempo * FPS);
-        } else {
-            this.beatTime--;
-        }
-    }
-}
