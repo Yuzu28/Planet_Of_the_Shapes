@@ -36,6 +36,7 @@ canvas{
 
 #player_view{
   position: absolute;
+<<<<<<< HEAD
   width:1%;
   height:100%;
 }
@@ -58,3 +59,12 @@ canvas{
   border:solid white;
   opacity: 1;
 }
+=======
+  width:inherit;
+  height:inherit;
+}
+
+  /* background-color: blue; */
+}
+
+>>>>>>> d8eb47aa666ae50adf56e0abb43a0f22fc8848ab

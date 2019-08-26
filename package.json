@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db:reset": "dropdb planet_of_the_shapes; bash create-db.sh",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -18,6 +19,5 @@
     "pg-promise": "^9.0.3",
     "request": "^2.88.0",
     "socket.io": "^2.2.0"
-
   }
 }
