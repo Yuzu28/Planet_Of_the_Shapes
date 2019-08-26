@@ -18,7 +18,7 @@ function SocketClient(){
 
   var game; // attach the game battleZone and engine
 
-  var room; // testing
+  var server = 1 ; // testing
 
   var battleZone; // server keeps tracks where people are
 
@@ -38,7 +38,7 @@ function SocketClient(){
   chatBox.submit(function(){
       //send this to the server
       //socket.emit("sendMessage",room,chat.val());
-      socket.emit("sendMessage",room,chat.val());
+      socket.emit("sendMessage",chat.val());
       var li = $('<li/>').append($('<p/>',{
           text:chat.val(),
           class:"message recipient-message"
@@ -55,16 +55,16 @@ function SocketClient(){
       battleZone.reset();
   })
 
-  socket.on('roomId',function(roomId){
-      room = roomId;
+  socket.on('serverId',function(serverId){
+      server = serverId;
       //showRoomId.text('Room ID : ' + room);
   })
 
 
-  socket.on("joinRoom",function(server){
-      window.alert("Joined room " + server);
+  socket.on("joinServer",function(server){
+      window.alert("Joined server " + server);
       
-      socket.emit("joinRoom",server);
+      socket.emit("joinServer",server);
       battleZone.setTeam('black');
       battleZone.competingHuman();
       battleZone.reset();
@@ -90,6 +90,7 @@ function SocketClient(){
 
   //recieve message from other player
   socket.on('sendMessage',function(message){
+    console.log(`messageReceived`)
       var li = $('<li/>').append($('<p/>',{
           text:message,
           class:"message sender-message"

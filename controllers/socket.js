@@ -23,9 +23,9 @@ exports = module.exports = function(io){
       
         // socket.on('disconnect',disconnect)
       
-        function broadcastMessageToServer(server, message){
+        function broadcastMessageToServer(message){
             console.log(message)
-          socket.broadcast.to(server).emit("sendMessage",message);
+          socket.broadcast.emit("sendMessage",message);
         }
       
         function broadcastKillFeed(server, killer, killed){
@@ -54,7 +54,7 @@ exports = module.exports = function(io){
           socket.broadcast.to(server).emit("sendMessage","SERVER : a user just joined");
           if(server){
             socket.join(server);
-            users.filter(user=>user.id == socket.id)[0].room = room;
+            users.filter(user=>user.id == socket.id)[0].server = server;
           }
         }
       
