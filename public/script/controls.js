@@ -53,7 +53,7 @@ addEventListener('keypress', (e)=>{
 // var downRight;
 // var downLeft;
 addEventListener('keydown', (e)=>{
-    // console.log(e.keyCode)
+    //console.log(e.keyCode)
     if(e.keyCode===38){//UP
         diamond.y -= 50
     }
@@ -66,8 +66,7 @@ addEventListener('keydown', (e)=>{
     if(e.keyCode===37){//Left
         diamond.x -= 50
     }
-    
-     
+        
 })
 ////////////////////////////////////////////////
 
