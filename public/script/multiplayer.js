@@ -94,6 +94,7 @@ var init = function() {
         player.create();
         player.status();
         if(players){
+            console.log(players)
             Object.values(players).forEach((player)=>{
                     createSquare(player[1]);
             })  
