@@ -25,6 +25,9 @@ router.get("/register", function(req, res, next) {
 router.get("/login", function(req, res, next) {
   res.render("login", { title: "Express" });
 });
+router.get("/single", function(req,res,next){
+  res.render('singlePlayerGame')
+})
 
 router.get("/game", async function(req, res, next) {
   UserIp = await req.connection.remoteAddress;
