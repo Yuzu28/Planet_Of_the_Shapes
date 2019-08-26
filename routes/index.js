@@ -113,7 +113,7 @@ function insertUser(){
   });
 });
 
-})
+
 router.post('/loginProcess', async (req, res, next) => {
   console.log('hi');
   const checkUserQuery = `
