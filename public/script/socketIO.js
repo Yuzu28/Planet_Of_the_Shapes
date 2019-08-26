@@ -103,9 +103,13 @@ function SocketClient(){
       setbattleZone:function(newbattleZone){
           battleZone= newbattleZone;
       },
-      sendMove:function(team,source,target,promo){
-          socket.emit("move",room,{shape, from:source,to:target,promotion:promo||''});
-      }
+      sendPlayers:function(player){
+          socket.emit("move",player);
+      },
+      sendBullets:function(bulletObj){
+          socket.emit("BulletList", bulletObj)
+      },
+      socket
   }
 }
 // make it so that when a player move it sends to server instantly

@@ -1,4 +1,5 @@
-
+var players = {};
+var bullets = {};
 exports = module.exports = function(io){
     io.on('connection',function(socket){
         
@@ -14,8 +15,9 @@ exports = module.exports = function(io){
 
         socket.on('drawObject', drawObject);
 
-        socket.on('playerMove', playerMove)
-      
+        socket.on('PlayerList', trackPlayers)
+        
+        socket.on('BulletList',trackBullets)
         // socket.on('newGameRequest',newGameRequest);
         // socket.on('newGame',newGame);
       
@@ -30,8 +32,19 @@ exports = module.exports = function(io){
           socket.broadcast.to(server).emit("killFeed",moveData);
         }
 
-        function playerMove(server, xy){
-            socket.broadcast.to(server).emit('playerMove', xy)
+        function trackBullets(server, bulletObj){
+            if(bulletObj){
+                Object.entries(bulletObj).forEach((bullet)=>{
+                    bullets[bullet[0]] = bullet[1]
+                })
+            }
+            socket.broadcast.to(server).emit('BulletList',bullets)
+        }
+        function trackPlayers(server, playerObj){
+            Object.entries(playerObj).forEach((player)=>{
+                players[player[0]] = player[1]
+            })
+            socket.broadcast.to(server).emit('PlayerList', players)
         }
 
         function drawObject(){}
