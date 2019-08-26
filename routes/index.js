@@ -4,7 +4,7 @@ const db = require("../db");
 const bcrypt = require('bcrypt');
 const expressSession = require('express-session');
 var UserIp;
-var displayName = "hi";
+var displayName = "hi"; // should get rid of this soon
 
 
 const sessionOptions ={
