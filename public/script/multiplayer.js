@@ -71,6 +71,7 @@ var init = function() {
 
     socket.socket.on("PlayerList",(playerList)=>{
         delete playerList[playerName]
+        console.log(playerList)
         players = playerList;
     })
     socket.socket.on("BulletList",(BulletList)=>{
