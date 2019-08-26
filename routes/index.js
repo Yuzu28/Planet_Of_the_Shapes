@@ -8,7 +8,7 @@ var UserIp;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.redirect('/login')
 });
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Express' });
