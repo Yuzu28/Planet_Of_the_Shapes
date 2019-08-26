@@ -99,7 +99,7 @@ function SocketClient(){
       setbattleZone:function(newbattleZone){
           battleZone= newbattleZone;
       },
-      sendPlayers:function(player){
+      sendPlayer:function(player){
           socket.emit("PlayerList",player);
       },
       sendBullets:function(bulletObj){
