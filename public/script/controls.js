@@ -13,7 +13,7 @@ function fire(bullets,timesfired,playerName,player){
     bullets = bullets || {}
     addEventListener('click', (e)=>{
         timesfired++
-        bullets[playerName+timesfired]=(new bullet(player.playerName.x, player.playerName.y, player.playerName.angle, playerName))
+        bullets[playerName+timesfired]=(new bullet(player.x, player.y, player.angle, playerName))
     })
     socket.emit('BulletList', bullets)
     return bullets;
@@ -24,20 +24,20 @@ addEventListener('keypress', (e)=>{
 
     if(e.keyCode===40||e.code==='KeyS'){
         console.log("Guy go backwards")
-        player.playerName.x -=  player.playerName.speed * Math.cos(player.playerName.angle)
-        player.playerName.y -=  player.playerName.speed * Math.sin(player.playerName.angle)
+        player.x -=  player.speed * Math.cos(player.angle)
+        player.y -=  player.speed * Math.sin(player.angle)
     }else if(e.keyCode===38||e.code==='KeyW'){
         console.log("Guy go fowards") 
-        player.playerName.x +=  player.playerName.speed * Math.cos(player.playerName.angle)
-        player.playerName.y +=  player.playerName.speed * Math.sin(player.playerName.angle)
+        player.x +=  player.speed * Math.cos(player.angle)
+        player.y +=  player.speed * Math.sin(player.angle)
     }if(e.keyCode===37||e.code==='KeyA'){
-        player.playerName.x -=  player.playerName.speed/2 * Math.cos(player.playerName.angle+Math.PI/2)
-        player.playerName.y -=  player.playerName.speed/2 * Math.sin(player.playerName.angle+Math.PI/2)
+        player.x -=  player.speed/2 * Math.cos(player.angle+Math.PI/2)
+        player.y -=  player.speed/2 * Math.sin(player.angle+Math.PI/2)
     }else if(e.keyCode===39||e.code==='KeyD'){
-        player.playerName.x +=  player.playerName.speed/2 * Math.cos(player.playerName.angle+Math.PI/2)
-        player.playerName.y +=  player.playerName.speed/2 * Math.sin(player.playerName.angle+Math.PI/2)
+        player.x +=  player.speed/2 * Math.cos(player.angle+Math.PI/2)
+        player.y +=  player.speed/2 * Math.sin(player.angle+Math.PI/2)
     }
-    // console.log(player.angle)
+    console.log(player.angle)
 
     
     // }if(e.keyCode===37||e.keyCode===68){
