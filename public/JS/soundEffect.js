@@ -22,7 +22,7 @@ var passlev = new nonstop("sound/pass.wav", 1, 0.3);
 var myy = new nonstop("sound/depress.mp3", 1, 0.5);
 
 //Hakeem Voice for Hell mode...
-var hakeem = new nonstop("sound/thehakeem.mp3", 1, 0.4);
+var hakeem = new nonstop("sound/mixxxx.mp3", 1);
 
 
 

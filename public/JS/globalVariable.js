@@ -43,7 +43,7 @@
     //----------- shape moving around the screen -----------//
     const FPS = 30; // frames per second
     const FRICTION = 0.7; // num making it easy to move around
-    const startingLife = 1; // Number of starting life you have in a game
+    var startingLife = 3; // Number of starting life you have in a game
 
     //----------- Canvas  -----------//
     var canv = document.getElementById("canvas");

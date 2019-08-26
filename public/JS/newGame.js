@@ -29,9 +29,9 @@
         hakeem.play();
 
         level = 0;
-        lives = startingLife;
-        shapeNum = 50;
-        invisibility = 9; //stay alive for 5 seconds, life is never fair
+        lives = 1;
+        shapeNum = 100;
+        invisibility = 20; //stay alive for 5 seconds, life is never fair
         shapeSpeed = 400;
         score = 0;
         ship = newShip();
