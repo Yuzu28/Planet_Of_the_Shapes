@@ -97,7 +97,7 @@ var init = function() {
         if(jQuery.isEmptyObject(players)===false){
             console.log(players)
             Object.values(players).forEach((player)=>{
-                    createSquare(player[1]);
+                    createSquare(player);
             })  
         }
         
