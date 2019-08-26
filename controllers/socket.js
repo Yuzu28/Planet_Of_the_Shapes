@@ -42,7 +42,7 @@ exports = module.exports = function(io){
         }
         function trackPlayers(playerObj){
             console.log(`player received`)
-            Object.entries(playerObj).forEach((player)=>{
+            Object.entries(JSON.parse(playerObj)).forEach((player)=>{
                 players[player[0]] = player[1]
             })
             socket.broadcast.emit('PlayerList', players)

@@ -38,8 +38,7 @@ var init = function() {
     var players = {};
     var bullets = {};
     var playerName= playerName || `Guest${Math.random()*10}${Math.random()*10}${Math.random()*10}`;
-    var player = {playerName:new playerShape(150,150,100,playerName)};
-    
+    var player = new playerShape(150,150,100,playerName);
     
     var timesfired=0;
     
@@ -62,42 +61,40 @@ var init = function() {
     }
     var mouse = (e)=> {
         var x = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
-        player.playerName.angle = (Math.atan2(((e.clientX-100)-player.playerName.x+ document.documentElement.scrollLeft), -((e.clientY-100+document.documentElement.scrollTop)-player.playerName.y))+ 3*Math.PI/2)
+        player.angle = (Math.atan2(((e.clientX-100)-player.x+ document.documentElement.scrollLeft), -((e.clientY-100+document.documentElement.scrollTop)-player.y))+ 3*Math.PI/2)
         // console.log((e.clientX))
         // console.log(player.x)
         // console.log((player.angle *180/Math.PI)-360)
     }
-    controls(player.playerName);
-    bullets = bullets ? fire(bullets,timesfired,playerName,player.playerName) : {};
-    socket.socket.on("PlayerList",(playerList)=>{
+    controls(player);
+    bullets = bullets ? fire(bullets,timesfired,playerName,player) : {};
+    socket.socket.on("PlayerList",(server, playerList)=>{
         players = playerList;
-        delete playerList[player.playerName]
+        delete playerList[playerName]
     })
-    socket.socket.on("BulletList",(BulletList)=>{
+    socket.socket.on("BulletList",(server, BulletList)=>{
         bullets = BulletList
     })
     function draw(){
         // console.log(Math.atan(3/2)* 180/Math.PI)
-        window.scrollTo(player.playerName.x- $(window).width()/2+100,player.playerName.y- $(window).height()/2+100)
+        window.scrollTo(player.x- $(window).width()/2+100,player.y- $(window).height()/2+100)
         // console.log(theScreen.style.left)
         // console.log(player.x)
 
-        miniPlayer.style.left = `${player.playerName.x/25}px`;
-        miniPlayer.style.top =  `${player.playerName.y/25}px`;
+        miniPlayer.style.left = `${player.x/25}px`;
+        miniPlayer.style.top =  `${player.y/25}px`;
 
         ctx.fillStyle = "green";
 
-        socket.sendPlayer(player.playerName)
+        socket.sendPlayer(JSON.stringify({playerName:{x:player._x,y:player._y,r:player.angle}}))
         // console.log(r)
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         
-        player.playerName.create();
-        player.playerName.status();
+        player.create();
+        player.status();
 
         Object.values(players).forEach((player)=>{
-                console.log(player)
-                player.create();
-                player.status();
+                createSquare(player[1]);
         })
         
         
