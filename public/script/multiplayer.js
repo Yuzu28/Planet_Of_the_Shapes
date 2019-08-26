@@ -94,7 +94,7 @@ var init = function() {
         
         player.create();
         player.status();
-        if(jQuery.isEmptyObject(players)){
+        if(jQuery.isEmptyObject(players)===false){
             console.log(players)
             Object.values(players).forEach((player)=>{
                     createSquare(player[1]);
