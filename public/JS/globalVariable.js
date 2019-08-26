@@ -2,7 +2,7 @@
 //----------- Canvas -----------//
 //------------------------------//
     
-    var shapeNum = 1; // starting number of shapes that will appear on level 1 and increse as the level go on
+    var shapeNum = 3; // starting number of shapes that will appear on level 1 and increse as the level go on
     const shapeSize = 100; // in pixels
     var shapeSpeed = 100; // max  speed of shape in pixels per second  50***** try 400 to make get go super fast 
 
@@ -43,7 +43,7 @@
     //----------- shape moving around the screen -----------//
     const FPS = 30; // frames per second
     const FRICTION = 0.7; // num making it easy to move around
-    const startingLife = 3; // Number of starting life you have in a game
+    const startingLife = 1; // Number of starting life you have in a game
 
     //----------- Canvas  -----------//
     var canv = document.getElementById("canvas");

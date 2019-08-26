@@ -27,17 +27,17 @@ var hakeem = new nonstop("sound/thehakeem.mp3", 1, 0.4);
 
 
 // Level 1 music
-var lvl1 = new nonstop("sound/Music/Level 1.wav", 1, 0.3);
+var lvl1 = new nonstop("sound/Music/Level 1.wav", 1, 0.4);
 //  Level 2 music
-var lvl2 = new nonstop("sound/Music/Level 2.wav", 1, 0.3);
+var lvl2 = new nonstop("sound/Music/Level 2.wav", 1, 0.4);
 // Level 3 music
-var lvl3 = new nonstop("sound/Music/Level 3.wav", 1, 0.3);
+var lvl3 = new nonstop("sound/Music/Level 3.wav", 1, 0.4);
 // Level 4 music
-var lvl4 = new nonstop("sound/Music/Level 4.wav", 1, 0.3);
+var lvl4 = new nonstop("sound/Music/Level 4.wav", 1, 0.4);
 // Level 5 Music
-var lvl5 = new nonstop("sound/Music/Level 5.wav", 1, 0.3);
+var lvl5 = new nonstop("sound/Music/Level 5.wav", 1, 0.4);
 // Main menu Music
-var lvl5 = new nonstop("sound/Music/Game Main.wav", 1, 0.3);
+var lvl5 = new nonstop("sound/Music/Game Main.wav", 1, 0.4);
 
 const lvlMusic = [lvl1, lvl2, lvl3, lvl4, lvl5];
 

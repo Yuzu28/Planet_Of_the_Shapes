@@ -11,4 +11,5 @@ function gameOver() {
   myAudio.pause();
   myy.play();
   overPopUp();
+  hakeem.stop()
 }
