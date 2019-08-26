@@ -34,7 +34,7 @@ router.get('/menu', async function(req, res, next){
   res.render('menu', {name:displayName});
 });
 
-router.post('/register',(req, res, next)=>{
+router.post('/registerProcess',(req, res, next)=>{
 
   // const {displayname,password,password2} = req.body;
   const displayname = req.body.displayname;
@@ -43,15 +43,15 @@ router.post('/register',(req, res, next)=>{
 
   const checkUserExistsQuery = `
     SELECT * FROM USERS WHERE DISPLAYNAME = $1 
-    
   `;
   db.any(checkUserExistsQuery, [displayname]).then((results) => {
     if(results.length > 0){
-      // this user alreacy exists
+      // this user already exists
       res.redirect('/login?msg=userexists'); 
     }else{
       // new user.insert
       insertUser();
+      res.redirect('/login?user_created')
     }
   })
 function insertUser(){
@@ -103,9 +103,10 @@ router.post('/loginProcess', async (req, res, next) => {
   console.log('hi');
   const checkUserQuery = `
   SELECT * From users WHERE displayname=$1
+  returning displayname;
   `;
   const checkUser = await db.one(checkUserQuery,[req.body.displayname])
-  const correctPass = bcrypt.compareSync(req.body.pasword, results.password);
+  const correctPass = await bcrypt.compareSync(req.body.pasword, results.password);
   console.log(checkUser)
   if(correctPass){
     // this is a valid user/pass 
@@ -124,11 +125,11 @@ router.post('/loginProcess', async (req, res, next) => {
   res.json(results);
   
   })
-  checkUser.catch((error) => {
-    res.json({
-      msg: "userDoesNotExist"
-    })
-  })
+  // checkUser.catch((error) => {
+  //   res.json({
+  //     msg: "userDoesNotExist"
+  //   })
+  // })
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
