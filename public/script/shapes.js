@@ -39,7 +39,7 @@ class playerSquare{
             return this.x-this.size/2;
         }
         this.getY =()=>{
-            return this.y+this.size/2;
+            return this.y-this.size/2;
         }
         this.create = ()=>{
             ctx.save();
