@@ -1,8 +1,8 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 const db = require("../db");
-const bcrypt = require('bcrypt');
-const expressSession = require('express-session');
+const bcrypt = require("bcrypt");
+const expressSession = require("express-session");
 var UserIp;
 var displayName = "hi"; // should get rid of this soon
 
@@ -15,24 +15,23 @@ const sessionOptions ={
 
 router.use(expressSession(sessionOptions));
 
-
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", function(req, res, next) {
+  res.render("index", { title: "Express" });
 });
-router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Express' });
+router.get("/register", function(req, res, next) {
+  res.render("register", { title: "Express" });
 });
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Express' });
+router.get("/login", function(req, res, next) {
+  res.render("login", { title: "Express" });
 });
 
-router.get('/game', async function(req, res, next){
-  UserIp = await req.connection.remoteAddress
-  var data = await req
-  console.log(data)
-  console.log(`A User has Joined at: ${UserIp}`)
-  res.render('multiplayer');
+router.get("/game", async function(req, res, next) {
+  UserIp = await req.connection.remoteAddress;
+  var data = await req;
+  console.log(data);
+  console.log(`A User has Joined at: ${UserIp}`);
+  res.render("multiplayer");
 });
 
 router.get('/menu', async function(req, res, next){
@@ -43,8 +42,9 @@ router.get('/menu', async function(req, res, next){
   res.render('menu', {name:displayName});
 });
 
-router.post('/register',(req, res, next)=>{
 
+
+router.post("/register", (req, res, next) => {
   // const {displayname,password,password2} = req.body;
   const displayname = req.body.displayname;
   const password = req.body.password;
@@ -54,11 +54,11 @@ router.post('/register',(req, res, next)=>{
     SELECT * FROM USERS WHERE DISPLAYNAME = $1 
     
   `;
-  db.any(checkUserExistsQuery, [displayname]).then((results) => {
-    if(results.length > 0){
+  db.any(checkUserExistsQuery, [displayname]).then(results => {
+    if (results.length > 0) {
       // this user alreacy exists
-      res.redirect('/login?msg=userexists'); 
-    }else{
+      res.redirect("/login?msg=userexists");
+    } else {
       // new user.insert
       insertUser();
     }
@@ -107,6 +107,11 @@ function insertUser(){
 // });
 // res.json(req.body);
 
+  /* GET users listing. */
+  router.get("/", function(req, res, next) {
+    res.send("respond with a resource");
+  });
+});
 
 })
 router.post('/loginProcess', async (req, res, next) => {
@@ -139,4 +144,7 @@ router.post('/loginProcess', async (req, res, next) => {
       })
     })
 })
-module.exports = {router,UserIp};
+router.get("/leaderboard", function(req, res) {
+  res.render("Leaderboard");
+});
+module.exports = { router, UserIp };

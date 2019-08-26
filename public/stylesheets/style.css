@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: blanchedalmond;
+  z-index: -2
  
 
 }
@@ -11,6 +12,8 @@ a {
 }
 canvas{
   position: absolute;
+  z-index: -2;
+  
   border:solid;
   background-color: white;
 }
@@ -25,7 +28,7 @@ canvas{
 }
 #overlay>div {
   position: relative;
-  z-index: 1;
+  z-index: -1;
   border: solid lightgray 1px;
   text-align: center;
   font-size: 30px;
@@ -33,10 +36,25 @@ canvas{
 
 #player_view{
   position: absolute;
-  width:inherit;
-  height:inherit;
+  width:1%;
+  height:100%;
 }
 
-  /* background-color: blue; */
+#mini_map{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  opacity: 0.5;
+  border: solid;
+  background-color: gray;
 }
 
+#player_mini_pos{
+  position: relative;
+  width:5px;
+  height: 5px;
+  background-color: yellow;
+  border:solid white;
+  opacity: 1;
+}
