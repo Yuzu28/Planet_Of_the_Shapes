@@ -22,8 +22,10 @@ body{
     
 } 
 .play{
+    position: relative;
+    top: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     height: 360px;
 

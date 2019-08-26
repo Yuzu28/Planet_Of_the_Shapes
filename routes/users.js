@@ -4,10 +4,6 @@
 // const bcrypt = require('bcrypt');
 // const expressSession = require('express-session');
 
-
-
-
-
 // router.post('/registerProcess',(req, res, next)=>{
 
 //   // const {displayname,password,password2} = req.body;
@@ -16,13 +12,13 @@
 //   const password2 = req.body.password2;
 
 //   const checkUserExistsQuery = `
-//     SELECT * FROM USERS WHERE DISPLAYNAME = $1 
-    
+//     SELECT * FROM USERS WHERE DISPLAYNAME = $1
+
 //   `;
 //   db.any(checkUserExistsQuery, [displayname]).then((results) => {
 //     if(results.length > 0){
 //       // this user alreacy exists
-//       res.redirect('/login?msg=userexists'); 
+//       res.redirect('/login?msg=userexists');
 //     }else{
 //       // new user.insert
 //       insertUser();
@@ -50,27 +46,26 @@
 //   const checkUser = db.one(checkUserQuery,[req.body.displayname])
 //   const correctPass = bcrypt.compareSync(req.body.pasword, results.password);
 //   if(correctPass){
-//     // this is a valid user/pass 
+//     // this is a valid user/pass
 //     res.send("Logged In")
 //     req.session.displayname = results.displayname;
 //     req.session.loggedIn = true;
 //     req.session. = results.;
 //     res.redirect('/');
-    
+
 //   }else{
 //     // these arent the droids were looking for
 //     res.redirect('/login?msg=badPass')
 //   }
 //   res.json(results);
-  
+
 //   })
 //   checkUser.catch((error) => {
 //     res.json({
 //       msg: "userDoesNotExist"
 //     })
-  
-// });
 
+// });
 
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {

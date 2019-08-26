@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Planet Of the Shapes</title>
+
+    <!-- stylesheet for game  -->
+    <link href="GameStylesheet/gameStyle.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Peta&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+
+    <!-- script file for sound and music -->
+    <script src="JS/soundEffect.js"></script>
+
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <div id="startGame">
+            <a href="javascript:void(0)" class="button play"><span class ="click">CLICK</span> to Enter the Battle Frontier</a>
+          </div>
+
+    <div id="game-over">
+            <h2>Your Score is <span id="score"></span> Pts</h2>
+            <a href="javascript:void(0)" class="button restart">Try again?</a>
+            <a href="javascript:void(0)" class="button heaven"> Try Hell Mode?</a>
+
+          </div>
+    
+    <script src="JS/globalVariable.js"></script>
+    <script src="JS/startingGame.js"></script>
+
+    <script src="JS/game.js"></script>
+    <script src="JS/shape.js"></script>
+    <script src="JS/triangleSpaceShip.js"></script>
+    <script src="JS/gameover.js"></script>
+    <script src="JS/newGame.js"></script>
+
+
+
+<!-- <div class="instructions active">
+        Press LEFT, and RIGHT to turn, and UP to propel.
+        <br>
+        Press SPACE to fire bullets.
+        
+    </div>
+
+   -->
+    
+
+</body>
+
+</html>

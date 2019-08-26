@@ -1,5 +1,69 @@
 console.log('sup+++++++++++++++++++++')
+///Projectiles
+// class Bullet{
+//     constructor(x,y, radius){ 
+//     this.x = x;
+//     this.y = y;
+//     this.radius = 10;
+//     this.startRadius = 0;
+//     this.endRadius = Math.PI * 2;
+//     this.direction = 1;
+//     this.color = 'crimson'
+    
+// }
+//  draw(){
+    
+//     ctx.fillStyle = this.color;
+//     ctx.beginPath();
+//     ctx.arc(this.x, this.y, this.radius, this.startRadius, this.endRadius); // Outer circle
+//     ctx.fill();
+// }
+// move(){
+//     this.x += 5 * this.direction //* this.level;
+//     if(this.x > maxWidth){
+//         this.direction = -1
+//     }else if(this.x < 0){
+//         this.direction = 1
 
+//     }
+// }
+
+
+// }
+
+
+
+
+///CIRCLE
+// class Circle{
+//     constructor(x, y, radius, startRadius, endRadius){
+//         this.x = x;
+//         this.y = y;
+//         this.radius = 50;
+//         this.startRadius = 0
+//         this.endRadius = Math.PI * 2;
+//         this.direction = 1;
+//         // this.hit = 0;
+//         // this.level = 1;50, 0, Math.PI * 2
+//     }
+//     move(){
+//         this.x += 5 * this.direction //* this.level;
+//         if(this.x > maxWidth){
+//             this.direction = -1
+//         }else if(this.x < 0){
+//             this.direction = 1
+
+//         }
+//     }
+//     draw(){
+       
+        
+//         ctx.fillStyle = 'green';
+//         ctx.beginPath();
+//         ctx.arc(this.x, this.y, this.radius, this.startRadius, this.endRadius); // Outer circle
+//         ctx.fill();
+//     }
+// };
 function shapes(){
 
 class Circle{
@@ -226,11 +290,13 @@ class Hexship{
         this.x = x;
         this.y = y;
         this.radius = 50;
-        this._x = this.x+50;
-        this._y = this.y+50
+        this.shootX=0
+        this.shootY=0
+        
         //this.distance = Math.sqrt(Math.pow(this.x+50 ,2) +  Math.pow(this.y+550 ,2));
     }
     draw(){
+        let bullet = new Bullet(this.x,this.y)
         ctx.beginPath();
         // ctx.rotate(this.angle)
         ctx.moveTo(this.x,this.y-50);
@@ -239,17 +305,44 @@ class Hexship{
         ctx.lineTo(this.x -50,this.y)
         ctx.fillStyle="#55694e"
         ctx.fill()
-        ctx.stokeStyle= "pink"
+        
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)//50,550
         // ctx.stroke()
-        
+        //bullet.draw()
+     
+    }  
+    reload(){
+    ctx.fillStyle = 'crimson';
+    ctx.beginPath();
+    ctx.arc(this.x+this.shootX, this.y+this.shootY, this.radius-40, 0, Math.PI * 2); 
+    ctx.fill();
+ 
+    
 
     }
-}
+} 
+
 
     
-    
+  ///PLAYER SQUARE
+class playerSquare{
+    constructor(x,y, size){
+        this.size = size;
+        this.angle= 0;
+        this.x = x+this.size/2;
+        this.y = y+this.size/2;
+        this.create = ()=>{
+            ctx.save();
+            ctx.fillStyle= 'purple';
+            ctx.translate(this.x+this.size/2,this.y+this.size/2);
+            ctx.rotate(this.angle)
+            ctx.translate(-(this.x+this.size/2),-(this.y+this.size/2));
+            ctx.fillRect(this.x, this.y, this.size, this.size);
+            ctx.restore();
+        }
+    }
+}  
 
 
 
