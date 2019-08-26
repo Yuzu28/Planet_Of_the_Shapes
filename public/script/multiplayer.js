@@ -68,11 +68,12 @@ var init = function() {
     }
     controls(player);
     bullets = bullets ? fire(bullets,timesfired,playerName,player) : {};
-    socket.socket.on("PlayerList",(server, playerList)=>{
+    
+    socket.socket.on("PlayerList",(playerList)=>{
         players = playerList;
         delete playerList[playerName]
     })
-    socket.socket.on("BulletList",(server, BulletList)=>{
+    socket.socket.on("BulletList",(BulletList)=>{
         bullets = BulletList
     })
     function draw(){
