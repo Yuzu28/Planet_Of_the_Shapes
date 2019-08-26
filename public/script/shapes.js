@@ -99,6 +99,12 @@ class playerSquare{
         this.angle= 0;
         this.x = x+this.size/2;
         this.y = y+this.size/2;
+        this.getX = ()=>{
+            return this.x-this.size/2;
+        }
+        this.getY =()=>{
+            return this.y-this.size/2;
+        }
         this.create = ()=>{
             ctx.save();
             ctx.fillStyle= 'purple';
@@ -228,7 +234,24 @@ class bulletSquare{
     ctx
 }
 }
+function createSquare(player){
+    console.log(player)
+    x_pos = player.x
+    y_pos = player.y
+    r_pos = player.r
 
+    var size = 100;
+    var angle = r_pos;
+    var x_center = x_pos + size/2
+    var y_center = y_pos + size/2
+    ctx.save();
+    ctx.fillStyle= 'purple';
+    ctx.translate(x_center,y_center);
+    ctx.rotate(angle)
+    ctx.translate(-(x_center),-(y_center));
+    ctx.fillRect(x_pos, y_pos, size, size);
+    ctx.restore();
+}
 
 ///HEXAGON
 class Hexagon{
