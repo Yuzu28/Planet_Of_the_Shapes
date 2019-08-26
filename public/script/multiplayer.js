@@ -87,7 +87,7 @@ var init = function() {
 
         ctx.fillStyle = "green";
         var playerObj= {}
-        playerObj[playerName] = {x:player._x,y:player._y,r:player.angle}
+        playerObj[playerName] = {x:player.getX(),y:player.getY(),r:player.angle}
         socket.sendPlayer(JSON.stringify(playerObj))
         // console.log(r)
         ctx.clearRect(0, 0, canvas.width, canvas.height)

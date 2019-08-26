@@ -33,10 +33,14 @@ class playerSquare{
         this.power = 100;
         this.speed = 20;
         this.angle= 0;
-        this._x = x;
-        this._y = y;
         this.x = x+this.size/2;
         this.y = y+this.size/2;
+        this.getX = ()=>{
+            return this.x-this.size/2;
+        }
+        this.getY =()=>{
+            return this.y+this.size/2;
+        }
         this.create = ()=>{
             ctx.save();
             ctx.fillStyle= 'purple';
@@ -168,8 +172,8 @@ class bulletSquare{
 }
 function createSquare(player){
     console.log(player)
-    x_pos = player._x
-    y_pos = player._y
+    x_pos = player.x
+    y_pos = player.y
     r_pos = player.r
 
     var size = 100;
