@@ -71,7 +71,6 @@ var init = function() {
 
     socket.socket.on("PlayerList",(playerList)=>{
         delete playerList[playerName]
-        console.log(playerList)
         players = playerList;
     })
     socket.socket.on("BulletList",(BulletList)=>{
@@ -95,7 +94,7 @@ var init = function() {
         
         player.create();
         player.status();
-        if(players){
+        if(players!={}){
             console.log(players)
             Object.values(players).forEach((player)=>{
                     createSquare(player[1]);
