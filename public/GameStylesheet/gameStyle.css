@@ -1,0 +1,107 @@
+body{
+    background-color: aqua;
+}
+canvas{
+
+/* background-image:url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg"); */
+background-image:url(../img/shape2.gif); 
+
+background-size: 100% 100%;
+/* background-repeat:no-repeat; */
+/* background-size:cover; */
+}
+#canvas{
+    margin: 20px;
+    border: 5px solid black;
+}
+
+#startBtn{
+    position: absolute;
+    top: 400px;
+    left: 300px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.instructions {
+position: absolute;
+box-sizing: border-box;
+display: none;
+background: black;
+color: white;
+max-width: 500px;
+max-height: 200px;
+margin: auto;
+font-size: 35px;
+border: 10px solid white;
+text-align: center;
+}
+
+.instructions {
+padding-top: 20px;
+}
+
+
+
+.instructions.active {
+display: block;
+}
+
+#game-over {
+    display: none;
+    text-align: center;
+    font-size: 38px;
+    /* padding-top: 92px; */
+    /* z-index: 1; */
+    /* width: 600px;
+    height: 360px; */
+    overflow: auto;
+    top: 30%;
+    left: 15%;
+    color: white;
+    /* margin: auto; */
+    position: absolute;
+    font-family: 'Anton', sans-serif;
+
+}
+
+.button {
+    background-color: purple;
+    /* border: none; */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 10px 10px 5px grey;
+}
+
+#startGame{
+    /* display: none; */
+    text-align: center;
+    font-size: 38px;
+    /* padding-top: 92px; */
+    /* z-index: 1; */
+    /* width: 600px;
+    height: 360px; */
+    overflow: auto;
+    top: 50%;
+    left: 25%;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    /* margin: auto; */
+    position: absolute;
+}
+
+.click{
+    color: greenyellow;
+}
+
+a:hover{
+    color: black;
+    background-color: #00cc00;
+
+
+}
