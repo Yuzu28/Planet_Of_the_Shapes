@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/giphylogo.gif");
+    background-image: url("../images/Backgroun2.png.jpg");
     background-color: #cccccc;
     display: inline-block;
     
@@ -13,9 +13,9 @@ body{
     border-radius: 15%;
     display: inline-block;
     justify-self: center;
-    
+    color: white;
 }
-.login{
+.register{
     display: inline-block;
     text-align: center;
     position: absolute;
@@ -35,10 +35,4 @@ h1{
 }
 .form-control{
     width: 65%;
-    padding: 5px;
-    
-}
-input[type=submit]{
-    width: 150px;
-    height: 200px;
 }

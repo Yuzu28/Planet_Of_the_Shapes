@@ -1,0 +1,53 @@
+body{
+    background-image: url("../images/image9.gif");
+    background-color: #cccccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%vw;
+    height: 100%vh;
+    font-size: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+    
+   
+.btn{
+    height: 25px;
+    width: 65px;
+    top: 30%;
+    left: 38%;
+    
+} 
+.play{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 360px;
+
+}
+button[type=play]{
+    width: 250px;
+    height: 80px;
+    font-size: 40px;
+    justify-content: space-evenly;
+    
+}
+button[type=play]:hover{
+    background-color:goldenrod;
+    color: white;
+      
+}
+button[type=exit]{
+    width: 250px;
+    height: 80px;
+    font-size: 40px;
+}
+button[type=exit]:hover{
+    background-color:goldenrod;
+    color: white;
+}
+
+
