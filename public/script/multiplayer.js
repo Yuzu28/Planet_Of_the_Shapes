@@ -70,8 +70,8 @@ var init = function() {
     bullets = bullets ? fire(bullets,timesfired,playerName,player) : {};
 
     socket.socket.on("PlayerList",(playerList)=>{
-        players = playerList;
         delete playerList[playerName]
+        players = playerList;
     })
     socket.socket.on("BulletList",(BulletList)=>{
         bullets = BulletList
