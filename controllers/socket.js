@@ -54,7 +54,7 @@ exports = module.exports = function(io){
           socket.broadcast.to(server).emit("sendMessage","SERVER : a user just joined");
           if(server){
             socket.join(server);
-            users.filter(user=>user.id == socket.id)[0].room = room;
+            users.filter(user=>user.id == socket.id)[0].server = server;
           }
         }
       
