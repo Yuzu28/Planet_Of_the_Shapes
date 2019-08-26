@@ -87,8 +87,9 @@ var init = function() {
         miniPlayer.style.top =  `${player.y/25}px`;
 
         ctx.fillStyle = "green";
-
-        socket.sendPlayer(JSON.stringify({playerName:{x:player._x,y:player._y,r:player.angle}}))
+        var playerObj= {}
+        playerObj[playerName] = {x:player._x,y:player._y,r:player.angle}
+        socket.sendPlayer(JSON.stringify(playerObj))
         // console.log(r)
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         
