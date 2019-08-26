@@ -11,6 +11,10 @@ var maxHeight = canvas.height;
 var player =new playerSquare(100, 400, 100);
 let diamond = new Hexship(50,500)
 
+
+ 
+
+
 function draw(){ 
     ctx.clearRect(0,0, canvas.width, canvas.height);
     
@@ -19,8 +23,12 @@ function draw(){
     triangle.draw()
     pentagon.draw()
     hexagon.draw()
+    
     diamond.draw()
-
+    diamond.reload(0, 0)
+   
+   
+    
     pentagon.move()
     hexagon.move()
     triangle.move()
