@@ -39,11 +39,6 @@ function SocketClient(){
       //send this to the server
       //socket.emit("sendMessage",room,chat.val());
       socket.emit("sendMessage",chat.val());
-      var li = $('<li/>').append($('<p/>',{
-          text:chat.val(),
-          class:"message recipient-message"
-      }))
-      messages.append(li);
       chat.val('');
       console.log('message sent')
       return false;
@@ -105,7 +100,7 @@ function SocketClient(){
           battleZone= newbattleZone;
       },
       sendPlayers:function(player){
-          socket.emit("move",player);
+          socket.emit("PlayerList",player);
       },
       sendBullets:function(bulletObj){
           socket.emit("BulletList", bulletObj)
