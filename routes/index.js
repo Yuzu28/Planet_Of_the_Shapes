@@ -11,13 +11,13 @@ const sessionOptions ={
   secret: "i3rlejofdiaug;lsad",
   resave: false,
   saveUninitialized: false
-}
+};
 
 router.use(expressSession(sessionOptions));
 
 /* GET home page. */
-router.get("/", function(req, res, next) {
-  res.render("index", { title: "Express" });
+router.get('/', function(req, res, next) {
+  res.redirect('/login')
 });
 router.get("/register", function(req, res, next) {
   res.render("register", { title: "Express" });
@@ -42,9 +42,7 @@ router.get('/menu', async function(req, res, next){
   res.render('menu', {name:displayName});
 });
 
-
-
-router.post("/register", (req, res, next) => {
+router.post('/registerProcess',(req, res, next)=>{
   // const {displayname,password,password2} = req.body;
   const displayname = req.body.displayname;
   const password = req.body.password;
@@ -52,15 +50,15 @@ router.post("/register", (req, res, next) => {
 
   const checkUserExistsQuery = `
     SELECT * FROM USERS WHERE DISPLAYNAME = $1 
-    
   `;
-  db.any(checkUserExistsQuery, [displayname]).then(results => {
-    if (results.length > 0) {
-      // this user alreacy exists
-      res.redirect("/login?msg=userexists");
-    } else {
+  db.any(checkUserExistsQuery, [displayname]).then((results) => {
+    if(results.length > 0){
+      // this user already exists
+      res.redirect('/login?msg=userexists'); 
+    }else{
       // new user.insert
       insertUser();
+      res.redirect('/login?user_created')
     }
   })
 function insertUser(){
@@ -73,47 +71,9 @@ function insertUser(){
     res.redirect("/menu");
   })
 }
-
-// router.post(`/login`, (req, res, next) =>{
-//   res.json(req.body);
-//   const checkUserQuery = `
-//   SELECT * From users WHERE display
-//   name=$1
-//   `;
-//   const checkUser = db.one(checkUserQuery,[req.body.displayname])
-//   const correctPass = bcrypt.compareSync(req.body.pasword, results.password);
-//   if(correctPass){
-//     // this is a valid user/pass 
-//     res.send("Logged In");
-//     displayName = results.displayname;
-//     console.log(results.displayname)
-//     console.log('hello')
-//     req.session.displayname = results.displayname;
-//     req.session.loggedIn = true;
-//     res.redirect('/menu');
-    
-//   }else{
-//     // these arent the droids were looking for
-//     res.redirect('/login?msg=badPass')
-//   }
-//   // res.json(results);
-  
-//   })
-//   checkUser.catch((error) => {
-//     res.json({
-//       msg: "userDoesNotExist"
-//     })
-  
-// });
-// res.json(req.body);
-
-  /* GET users listing. */
-  router.get("/", function(req, res, next) {
-    res.send("respond with a resource");
-  });
 });
 
-})
+
 router.post('/loginProcess', async (req, res, next) => {
   console.log('hi');
   const checkUserQuery = `
@@ -133,7 +93,7 @@ router.post('/loginProcess', async (req, res, next) => {
     }else{
       // these arent the droids were looking for
       console.log('didnt work')
-      res.redirect('/login?')
+      res.redirect('/login?badpass')
     }
     res.json(results);
     
