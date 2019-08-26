@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db:reset": "dropdb planet_of_the_shapes; bash create-db.sh",
     "start": "node ./bin/www"
   },
   "dependencies": {

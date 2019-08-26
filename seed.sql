@@ -1,0 +1,2 @@
+-- INSERT into users
+-- (displayname, highscore, password)
