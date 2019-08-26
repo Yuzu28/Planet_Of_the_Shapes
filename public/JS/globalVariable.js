@@ -4,7 +4,7 @@
     
     var shapeNum = 1; // starting number of shapes that will appear on level 1 and increse as the level go on
     const shapeSize = 100; // in pixels
-    var shapeSpeed = 50; // max  speed of shape in pixels per second  50***** try 400 to make get go super fast 
+    var shapeSpeed = 100; // max  speed of shape in pixels per second  50***** try 400 to make get go super fast 
 
     //----------- Point System -----------//
     const largeShapePoint = 20; // points scored for a big shape

@@ -1,8 +1,6 @@
 
     function createShape() {
-        // myAudio.play();
 
-        
         container = [];
         var x, y;
 

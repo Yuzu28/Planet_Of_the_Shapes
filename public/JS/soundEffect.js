@@ -20,7 +20,7 @@ var engine = new nonstop("sound/jetengine.wav", 1, 0.3);
 var passlev = new nonstop("sound/pass.wav", 1, 0.3);
 
 //background music
-var myy = new nonstop("sound/depress.mp3",1,0.4);
+var myy = new nonstop("sound/depress.mp3",1,0.6);
 
 
 //gameplay music

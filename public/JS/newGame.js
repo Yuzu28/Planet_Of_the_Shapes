@@ -8,7 +8,7 @@
         score = 0;
         invisibility = 0.4
         shapeNum = 3;
-        shapeSpeed = 50;
+        shapeSpeed = 100;
         ship = newShip();
 
         // get the high score from local storage
@@ -27,7 +27,6 @@
     function bosslevel() {
         myy.stop(); ///stop the mission failed music
 
-        // invisibility = 10;
         level = 0;
         lives = startingLife;
         shapeNum = 100;

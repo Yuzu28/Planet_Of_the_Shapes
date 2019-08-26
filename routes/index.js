@@ -25,6 +25,9 @@ router.get('/game', async function(req, res, next){
   res.render('multiplayer');
 });
 
+router.get('/singleplayer', (req, res, next)=>{
+  res.render('singlePlayerGame');
+})
 router.post('/register',(req, res, next)=>{
 
   // const {displayname,password,password2} = req.body;
