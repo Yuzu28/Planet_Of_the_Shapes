@@ -32,19 +32,20 @@ exports = module.exports = function(io){
           socket.broadcast.to(server).emit("killFeed",moveData);
         }
 
-        function trackBullets(server, bulletObj){
+        function trackBullets(bulletObj){
             if(bulletObj){
                 Object.entries(bulletObj).forEach((bullet)=>{
                     bullets[bullet[0]] = bullet[1]
                 })
             }
-            socket.broadcast.to(server).emit('BulletList',bullets)
+            socket.broadcast.emit('BulletList',bullets)
         }
-        function trackPlayers(server, playerObj){
+        function trackPlayers(playerObj){
+            console.log(`player received`)
             Object.entries(playerObj).forEach((player)=>{
                 players[player[0]] = player[1]
             })
-            socket.broadcast.to(server).emit('PlayerList', players)
+            socket.broadcast.emit('PlayerList', players)
         }
 
         function drawObject(){}
