@@ -68,7 +68,7 @@ var init = function() {
     }
     controls(player);
     bullets = bullets ? fire(bullets,timesfired,playerName,player) : {};
-    
+
     socket.socket.on("PlayerList",(playerList)=>{
         players = playerList;
         delete playerList[playerName]
@@ -93,10 +93,11 @@ var init = function() {
         
         player.create();
         player.status();
-
-        Object.values(players).forEach((player)=>{
-                createSquare(player[1]);
-        })
+        if(players){
+            Object.values(players).forEach((player)=>{
+                    createSquare(player[1]);
+            })  
+        }
         
         
         Object.entries(bullets).forEach((bullet)=>{
