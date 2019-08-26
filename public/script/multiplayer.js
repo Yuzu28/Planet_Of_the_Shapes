@@ -95,6 +95,7 @@ var init = function() {
         player.playerName.status();
 
         Object.values(players).forEach((player)=>{
+                console.log(player)
                 player.create();
                 player.status();
         })
