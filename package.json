@@ -1,8 +1,9 @@
 {
-  "name": "PlanetOfTheShapes",
+  "name": "planet-of-the-shapes",
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db:reset": "dropdb planet_of_the_shapes; bash create-db.sh",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pg-promise": "^9.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0"
   }
 }
