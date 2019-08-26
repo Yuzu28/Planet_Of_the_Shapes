@@ -168,8 +168,8 @@ class bulletSquare{
 }
 function createSquare(player){
     console.log(player)
-    x_pos = player.x
-    y_pos = player.y
+    x_pos = player._x
+    y_pos = player._y
     r_pos = player.r
 
     var size = 100;
