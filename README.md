@@ -9,6 +9,10 @@
  * In single player mode, it allow a user to take off into the Battle Frontier. In the Battle Frontier, the user start off at level 1 and killing opposing enemy shapes to stack up points to advance to higher levels. There is also a hidden level once a player used up all their lives in the game. 
 
  * In multiplayer mode, it allow a user to chat with other users. Each user can operate their own shape and move around the screen. 
+ 
+# GamePlay
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="100%" height="100%">
+
 
 # Goals
 
@@ -16,7 +20,7 @@
 
 * Single Player Mode: Using Javascript Canvas to design a game where user can shoot down shapes.
 
-* Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. 
+* Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. Still a work in progress.
 
 # How did we make it?
 
@@ -32,7 +36,7 @@
 
 ## Obstacles and Challenges 
 * Login and Registration Page
-    * Trying to make sure it stores data in Postgresql.
+    * Trying to make sure it stores data of username and password in Postgresql.
   
 * Single Player Mode
     * Learning and Understanding Canvas
@@ -54,8 +58,8 @@
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
    
-## How to Used the App?
-* Git Glone on terminal or Download
+## How to Used the Website?
+* Git clone on terminal or Download
 * Then in the file type **npm install** on terminal
 * Then type **nodemon**
 * Then head to http://localhost:3000/
