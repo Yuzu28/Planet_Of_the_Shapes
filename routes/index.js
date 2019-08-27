@@ -98,7 +98,7 @@ router.post('/loginProcess', async (req, res, next) => {
       console.log('didnt work')
       res.redirect('/login?badpass')
     }
-    res.json(results);
+    // res.json(results);
     
     
     checkUser.catch((error) => {

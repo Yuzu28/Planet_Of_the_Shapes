@@ -64,6 +64,14 @@ console.log('sup+++++++++++++++++++++')
 //         ctx.fill();
 //     }
 // };
+function getRndColor(){
+    var colorPossible = 'abcdefABCDEF1234567890'
+    var colorString = '#'
+    for(var i = 0; i < 6; i++){
+        colorString += colorPossible[Math.floor(Math.random()*22)]
+    }
+    return colorString;
+}
 function shapes(){
 
 class Circle{
@@ -90,7 +98,7 @@ class Square{
 
 ///PLAYER SQUARE
 class playerSquare{
-    constructor(x,y, size, playerName){
+    constructor(x, y, size, playerName, color){
         this.player = playerName;
         this.size = size;
         this.health = 100;
@@ -99,6 +107,7 @@ class playerSquare{
         this.angle= 0;
         this.x = x+this.size/2;
         this.y = y+this.size/2;
+        this.color = color || getRndColor();
         this.getX = ()=>{
             return this.x-this.size/2;
         }
@@ -107,7 +116,7 @@ class playerSquare{
         }
         this.create = ()=>{
             ctx.save();
-            ctx.fillStyle= 'purple';
+            ctx.fillStyle= this.color;
             ctx.translate(this.x+this.size/2,this.y+this.size/2);
             ctx.rotate(this.angle)
             ctx.translate(-(this.x+this.size/2),-(this.y+this.size/2));
@@ -235,24 +244,33 @@ class bulletSquare{
 }
 }
 function createSquare(player){
-    console.log(player)
+    // console.log(player)
     x_pos = player.x
     y_pos = player.y
     r_pos = player.r
+    color = player.color
 
     var size = 100;
     var angle = r_pos;
     var x_center = x_pos + size/2
     var y_center = y_pos + size/2
     ctx.save();
-    ctx.fillStyle= 'purple';
+    ctx.fillStyle= color;
     ctx.translate(x_center,y_center);
     ctx.rotate(angle)
     ctx.translate(-(x_center),-(y_center));
     ctx.fillRect(x_pos, y_pos, size, size);
     ctx.restore();
 }
-
+function drawBullet(bullet){
+    x_pos = bullet.x
+    y_pos = bullet.y;
+    var size = 20;
+    
+    ctx.save();
+    ctx.fillRect(x_pos, y_pos, size, size);
+    ctx.restore();
+}
 ///HEXAGON
 class Hexagon{
     constructor(x, y) {
@@ -325,24 +343,24 @@ class Hexship{
 
 
     
-  ///PLAYER SQUARE
-class playerSquare{
-    constructor(x,y, size){
-        this.size = size;
-        this.angle= 0;
-        this.x = x+this.size/2;
-        this.y = y+this.size/2;
-        this.create = ()=>{
-            ctx.save();
-            ctx.fillStyle= 'purple';
-            ctx.translate(this.x+this.size/2,this.y+this.size/2);
-            ctx.rotate(this.angle)
-            ctx.translate(-(this.x+this.size/2),-(this.y+this.size/2));
-            ctx.fillRect(this.x, this.y, this.size, this.size);
-            ctx.restore();
-        }
-    }
-}  
+//   ///PLAYER SQUARE
+// class playerSquare{
+//     constructor(x,y, size){
+//         this.size = size;
+//         this.angle= 0;
+//         this.x = x+this.size/2;
+//         this.y = y+this.size/2;
+//         this.create = ()=>{
+//             ctx.save();
+//             ctx.fillStyle= 'purple';
+//             ctx.translate(this.x+this.size/2,this.y+this.size/2);
+//             ctx.rotate(this.angle)
+//             ctx.translate(-(this.x+this.size/2),-(this.y+this.size/2));
+//             ctx.fillRect(this.x, this.y, this.size, this.size);
+//             ctx.restore();
+//         }
+//     }
+// }  
 
 
 

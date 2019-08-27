@@ -27,6 +27,7 @@ console.log('it loaded')
 var init = function() {
     // var circle = new Circle;
     // var square = new Square;
+
     shapes()
     var playerShape = shapes().playerSquare 
     var socket;
@@ -67,7 +68,8 @@ var init = function() {
         // console.log((player.angle *180/Math.PI)-360)
     }
     controls(player);
-    bullets = bullets ? fire(bullets,timesfired,playerName,player) : {};
+    
+    timesfired += fire(timesfired,playerName,player) || 0;
 
     socket.socket.on("PlayerList",(playerList)=>{
         delete playerList[playerName]
@@ -87,7 +89,7 @@ var init = function() {
 
         ctx.fillStyle = "green";
         var playerObj= {}
-        playerObj[playerName] = {x:player.getX(),y:player.getY(),r:player.angle}
+        playerObj[playerName] = {x:player.getX(),y:player.getY(),r:player.angle,idle:0,color:player.color}
         socket.sendPlayer(JSON.stringify(playerObj))
         // console.log(r)
         ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -95,19 +97,20 @@ var init = function() {
         player.create();
         player.status();
         if(jQuery.isEmptyObject(players)===false){
-            console.log(players)
+            // console.log(players)
             Object.values(players).forEach((player)=>{
                     createSquare(player);
             })  
         }
         
-        
-        Object.entries(bullets).forEach((bullet)=>{
-                bullet[1].create();
-                if(bullet[1].status()) {
-                   delete bullets[bullet[0]]
-                }
-        })
+        if(jQuery.isEmptyObject(bullets)===false){
+            Object.values(bullets).forEach((bullet)=>{
+                    drawBullet(bullet);
+                    // if(bullet[1].status()) {
+                    // // delete bullets[bullet[0]]
+                    // }
+            })
+        }
         
         //where we draw
         // context.drawImage(bgImage, 0,0);
