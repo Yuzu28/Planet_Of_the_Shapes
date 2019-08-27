@@ -6,17 +6,18 @@
 //     player.angle = (Math.atan2(((e.layerX-50)-player.x), -((e.layerY-50)-player.y))+ 3*Math.PI/2)
 //     console.log(player.angle *180/Math.PI)
 // })
-function fire(bullets,timesfired,playerName,player){
+function fire(timesfired,playerName,player){
     var socket = SocketClient().socket
 
     var bullet = shapes().bulletSquare
-    bullets = bullets || {}
-    addEventListener('click', (e)=>{
+    addEventListener('click', (e)=>{    
+        var bullets = {}
         timesfired++
-        bullets[playerName+timesfired]=(new bullet(player.x, player.y, player.angle, playerName))
+        bullets[`${playerName}?${timesfired}`]= {x:player.x+50,y:player.y+50,angle:player.angle,name:playerName,x_origin:player.x,y_origin:player.y,distance:0}//(new bullet(player.x, player.y, player.angle, playerName))    
+        console.log(bullets);    
+        socket.emit('BulletList', bullets)
     })
-    socket.emit('BulletList', bullets)
-    return bullets;
+    return timesfired;
 }
 function controls(player){
 addEventListener('keypress', (e)=>{

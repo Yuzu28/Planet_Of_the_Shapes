@@ -87,7 +87,7 @@ function SocketClient(){
   socket.on('sendMessage',function(message){
     console.log(`messageReceived`)
       var li = $('<li/>').append($('<p/>',{
-          text:message,
+          text: message,
           class:"message sender-message"
       }))
       messages.append(li);
