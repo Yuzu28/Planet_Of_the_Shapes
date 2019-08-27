@@ -73,3 +73,10 @@ canvas{
 #start_up_menu.hidden{
   display: none;
 }
+
+.title{
+  color:white;
+  position: fixed;
+  top:80px
+
+}
