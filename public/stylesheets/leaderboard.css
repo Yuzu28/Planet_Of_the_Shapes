@@ -26,9 +26,13 @@ Leaderboard
   border-radius: 20px;
   box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
 }
-
+h2 {
+  display: block;
+  align-content: space-between;
+}
 ol {
-  counter-reset: leaderboard;
+  display: flex;
+  align-content: space-between;
 }
 
 small {
@@ -39,9 +43,10 @@ small {
 }
 
 li {
+  list-style-type: default;
   z-index: 2;
   overflow: visible;
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
 }
 mark {
