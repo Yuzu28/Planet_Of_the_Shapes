@@ -65,7 +65,7 @@ router.get("/game", async function(req, res, next) {
   console.log(data);
   console.log(`A User has Joined at: ${UserIp}`);
   res.render("multiplayer", {
-    user: displayName
+    user: req.session.displayname
   });
 });
 
