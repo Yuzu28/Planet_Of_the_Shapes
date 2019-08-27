@@ -6,9 +6,9 @@ const expressSession = require("express-session");
 var UserIp;
 var displayName; // should get rid of this soon
 
-const Auth = require('./auth');
+const Auth = require("./auth");
 
-const sessionOptions ={
+const sessionOptions = {
   secret: "i3rlejofdiaug;lsad",
   resave: false,
   saveUninitialized: false
@@ -83,6 +83,7 @@ router.post('/loginProcess', async (req, res, next) => {
       })
     })
 })
+
 router.get("/game", async function(req, res, next) {
   UserIp = await req.connection.remoteAddress;
   var data = await req;
@@ -93,22 +94,21 @@ router.get("/game", async function(req, res, next) {
   });
 });
 
-
 // router.use((req,res,next)=>{
-  //   console.log(req.session.displayname)
-  //   if(req.session.displayname){
-    //     next();
-    //   }else{
-      //     res.redirect('/login')
-      //   }
+//   console.log(req.session.displayname)
+//   if(req.session.displayname){
+//     next();
+//   }else{
+//     res.redirect('/login')
+//   }
 // })
-router.get('/menu', Auth, async function(req, res, next){
-  var data = await req
-  console.log(data)
+router.get("/menu", Auth, async function(req, res, next) {
+  var data = await req;
+  console.log(data);
   // // var name = awa
-  // req.session.displayname = displayName; 
-  console.log(req.session)
-  res.render('menu', {name:req.session.displayname});
+  // req.session.displayname = displayName;
+  console.log(req.session);
+  res.render("menu", { name: req.session.displayname });
 });
 
 router.post("/registerProcess", (req, res, next) => {
@@ -173,7 +173,7 @@ router.post("/loginProcess", async (req, res, next) => {
 });
 router.get("/leaderboard", async function(req, res) {
   const userInfo = `
-  SELECT highscore, displayname 
+  SELECT displayname, highscore
   From users 
   order by highscore desc 
   limit 10
@@ -181,8 +181,7 @@ router.get("/leaderboard", async function(req, res) {
 
   const results = await db.any(userInfo);
 
-  console.log(results);
+  //console.log(results);
   res.render("Leaderboard", { results });
-
 });
 module.exports = { router, UserIp };
