@@ -27,16 +27,6 @@
 | Postgresql | 
 | Socket io.| 
 
-## Single Player Mode
-
-* Single Player Mode GamePlay.  
-<img src="https://giphy.com/gifs/sacascafa-YnkGlX6AiSYg7jxn5B" width="100%" height="100%" />
-
-* There is a secret Level Call HELL MODE, once a user attempt at the Game. 
-<img src="https://giphy.com/gifs/kjsalaslka-KCvuXZkTmYT6JpFp5F" width="100%" height="100%" />
-
-
-
 ## Obstacles and Challenges 
 * Login and Registration Page
     * Trying to make sure it stores data in Postgresql.
