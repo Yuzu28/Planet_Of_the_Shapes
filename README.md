@@ -32,7 +32,7 @@
 
 ## Obstacles and Challenges 
 * Login and Registration Page
-    * Trying to make sure it stores data in Postgresql.
+    * Trying to make sure it stores data of username and password in Postgresql.
   
 * Single Player Mode
     * Learning and Understanding Canvas
@@ -54,8 +54,8 @@
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
    
-## How to Used the App?
-* Git Glone on terminal or Download
+## How to Used the Website?
+* Git clone on terminal or Download
 * Then in the file type **npm install** on terminal
 * Then type **nodemon**
 * Then head to http://localhost:3000/
