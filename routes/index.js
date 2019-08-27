@@ -4,7 +4,7 @@ const db = require("../db");
 const bcrypt = require("bcrypt");
 const expressSession = require("express-session");
 var UserIp;
-var displayName = "hi"; // should get rid of this soon
+var displayName; // should get rid of this soon
 
 
 const sessionOptions ={
@@ -34,7 +34,9 @@ router.get("/game", async function(req, res, next) {
   var data = await req;
   console.log(data);
   console.log(`A User has Joined at: ${UserIp}`);
-  res.render("multiplayer");
+  res.render("multiplayer",{
+    user:displayName
+  });
 });
 
 router.get('/menu', async function(req, res, next){

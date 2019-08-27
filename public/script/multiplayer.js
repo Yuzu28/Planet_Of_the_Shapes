@@ -18,16 +18,24 @@
 // var theScreen = document.getElementById('player_view')
 // window.onload = mousefunc;
 // const miniPlayer = document.querySelector('#player_mini_pos')
-
 let canvas = document.getElementById('Server_view');
 let overlay = document.body
 let ctx = canvas.getContext('2d');
+let startMenu = document.getElementById('start_up_menu');
+function checkPlayer(player){
+    if(player){
+        if(startMenu.classList.contains('hidden')){}else{startMenu.classList.add('hidden')}
+    }else{
+        if(startMenu.classList.contains('hidden')){startMenu.classList.remove('hidden')}
+    }
+}
+
 
 console.log('it loaded')
 var init = function() {
     // var circle = new Circle;
     // var square = new Square;
-
+    
     shapes()
     var playerShape = shapes().playerSquare 
     var socket;
@@ -41,6 +49,8 @@ var init = function() {
     var playerName= playerName || `Guest${Math.random()*10}${Math.random()*10}${Math.random()*10}`;
     var player = new playerShape(150,150,100,playerName);
     
+    // startMenu.submit()
+
     var timesfired=0;
     
     var theScreen = document.getElementById('player_view')
@@ -116,6 +126,7 @@ var init = function() {
         // context.drawImage(bgImage, 0,0);
         // context.drawImage(theHero, theHeroLoc.x, theHeroLoc.y);
         // bullet.x++
+        checkPlayer(player)
         requestAnimationFrame(draw)
     }
     draw()

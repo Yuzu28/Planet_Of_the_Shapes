@@ -58,3 +58,18 @@ canvas{
   border:solid white;
   opacity: 1;
 }
+
+#start_up_menu{
+  position: fixed;
+  top:50%;
+  left:50%;
+  background-color: darkgrey;
+  opacity: .95;
+  width: 800px;
+  height: 600px;
+  z-index: 10;
+  transform: translate(-50%, -50%)
+}
+#start_up_menu.hidden{
+  display: none;
+}
