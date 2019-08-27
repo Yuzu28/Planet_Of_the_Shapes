@@ -2,8 +2,14 @@
 
 function overPopUp() {
   $("#score").html(score);
-  if(score>HighScore){
-
+  if(playerScore<score){
+    fetch('/sethighscore',{
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body:JSON.stringify({'displayName':playerName, 'highscore':score})
+    })
   }
   $("#game-over").show();
   lvlMusic[level].stop();

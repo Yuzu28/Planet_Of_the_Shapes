@@ -25,14 +25,33 @@ router.get("/register", function(req, res, next) {
 router.get("/login", function(req, res, next) {
   res.render("login", { title: "Express" });
 });
-router.get("/single", function(req,res,next){
+router.get("/single", Auth ,function(req,res,next){
+ console.log(`
  
+ 
+ 
+ 
+ 
+ 
+ `)
+  const playerName =req.session.displayname
+ console.log(playerName)
   res.render('singlePlayerGame',
-  {playerName: req.session.displayname,
+  {playerName,
    HighScore: req.session.HighScore 
   })
 })
-
+router.post('/sethighscore', async (req, res, next)=>{
+  console.log(req.body)
+  const setScore = `
+  UPDATE users
+  SET    highscore = $1
+  WHERE  displayname = $2
+  returning true;
+  `
+  var score = await db.one(setScore,[req.body.highscore,req.body.displayName])
+  console.log(req.body.highscore)
+})
 router.post('/loginProcess', async (req, res, next) => {
   console.log('hi');
   const checkUserQuery = `
@@ -45,6 +64,7 @@ router.post('/loginProcess', async (req, res, next) => {
       // this is a valid user/pass 
       console.log('user logged')
       req.session.displayname = checkUser.displayname;
+      req.session.HighScore = checkUser.highscore
       req.session.loggedIn = true;
       req.session.email = checkUser.email;
       res.redirect('/menu');
@@ -111,7 +131,8 @@ router.post("/registerProcess", (req, res, next) => {
     }
   });
   function insertUser() {
-    const insertUserQuery = `INSERT INTO users (displayname,password, highscore)
+    const insertUserQuery = `
+    INSERT INTO users (displayname,password, highscore)
     VALUES
     ($1,$2,0)
     returning id`;

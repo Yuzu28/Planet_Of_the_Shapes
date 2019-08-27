@@ -29,7 +29,11 @@
             <a href="javascript:void(0)" class="button heaven"> Try Hell Mode?</a>
 
           </div>
-    <%var playerScore= HighScore; var playerName = playername%>
+    <script>
+        var playerScore= <%- HighScore %>;
+        var playerName= '<%= playerName %>';
+        console.log('this is player name: ',playerName)
+    </script>
     <script src="JS/globalVariable.js"></script>
     <script src="JS/startingGame.js"></script>
 
