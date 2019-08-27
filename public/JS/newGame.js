@@ -6,7 +6,7 @@
         level = 0;
         lives = startingLife;
         score = 0;
-        invisibility = 5;
+        invisibility = 2;
         shapeNum = 3;
         shapeSpeed = 100;
         ship = newShip();
