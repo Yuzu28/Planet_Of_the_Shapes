@@ -27,6 +27,7 @@ body {
   width: 125px;
   border-radius: 10%;
   font-size: 18;
+
 }.play{
     position: fixed;
     top: 50%;
@@ -37,4 +38,3 @@ body {
     height: 360px;
     transform: translate(-50%, -45%)
 }
- 
