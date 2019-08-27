@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const expressSession = require("express-session");
 var UserIp;
 var displayName; // should get rid of this soon
-
+const Auth = require('./auth');
 
 const sessionOptions ={
   secret: "i3rlejofdiaug;lsad",
@@ -14,7 +14,6 @@ const sessionOptions ={
 };
 
 router.use(expressSession(sessionOptions));
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.redirect('/login')
@@ -29,6 +28,36 @@ router.get("/single", function(req,res,next){
   res.render('singlePlayerGame')
 })
 
+router.post('/loginProcess', async (req, res, next) => {
+  console.log('hi');
+  const checkUserQuery = `
+  SELECT * From users WHERE displayname=$1
+    `;
+    const checkUser = await db.one(checkUserQuery,[req.body.displayname])
+    console.log(checkUser.password)
+    const correctPass = bcrypt.compareSync(req.body.password, checkUser.password);
+    if(correctPass){
+      // this is a valid user/pass 
+      console.log('user logged')
+      req.session.displayname = checkUser.displayname;
+      req.session.loggedIn = true;
+      req.session.email = checkUser.email;
+      res.redirect('/menu');
+      
+    }else{
+      // these arent the droids were looking for
+      console.log('didnt work')
+      res.redirect('/login?badpass')
+    }
+    // res.json(results);
+    
+    
+    checkUser.catch((error) => {
+      res.json({
+        msg: "userDoesNotExist"
+      })
+    })
+})
 router.get("/game", async function(req, res, next) {
   UserIp = await req.connection.remoteAddress;
   var data = await req;
@@ -39,12 +68,25 @@ router.get("/game", async function(req, res, next) {
   });
 });
 
-router.get('/menu', async function(req, res, next){
+// router.use((req,res,next)=>{
+  //   console.log(req.session.displayname)
+  //   if(req.session.displayname){
+    //     next();
+    //   }else{
+      router.use((req, res, next)=>{
+        console.log(req.session.displayname)
+        next();
+      })
+      //     res.redirect('/login')
+      //   }
+// })
+router.get('/menu', Auth, async function(req, res, next){
   var data = await req
   console.log(data)
   // // var name = awa
   // req.session.displayname = displayName; 
-  res.render('menu', {name:displayName});
+  console.log(req.session)
+  res.render('menu', {name:req.session.displayname});
 });
 
 router.post('/registerProcess',(req, res, next)=>{
@@ -79,36 +121,6 @@ function insertUser(){
 });
 
 
-router.post('/loginProcess', async (req, res, next) => {
-  console.log('hi');
-  const checkUserQuery = `
-  SELECT * From users WHERE displayname=$1
-    `;
-    const checkUser = await db.one(checkUserQuery,[req.body.displayname])
-    console.log(checkUser.password)
-    const correctPass = bcrypt.compareSync(req.body.password, checkUser.password);
-    if(correctPass){
-      // this is a valid user/pass 
-      console.log('user logged')
-      req.session.displayname = checkUser.displayname;
-      req.session.loggedIn = true;
-      req.session.email = checkUser.email;
-      res.redirect('/menu');
-      
-    }else{
-      // these arent the droids were looking for
-      console.log('didnt work')
-      res.redirect('/login?badpass')
-    }
-    // res.json(results);
-    
-    
-    checkUser.catch((error) => {
-      res.json({
-        msg: "userDoesNotExist"
-      })
-    })
-})
 router.get("/leaderboard", function(req, res) {
   res.render("Leaderboard");
 });
