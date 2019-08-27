@@ -1,7 +1,7 @@
 
     function newGame() {
         myy.stop(); ///stop the mission failed music
-        myAudio.play();
+        // myAudio.play();
 
         level = 0;
         lives = startingLife;
