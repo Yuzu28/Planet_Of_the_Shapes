@@ -23,7 +23,7 @@ var myy = new nonstop("sound/depress.mp3", 1, 0.5);
 
 //Hakeem Voice for Hell mode...
 // var hakeem = new nonstop("sound/mix_2m10s (audio-joiner.com).mp3", 1);
-var hakeem = new nonstop("hakeemVoice.mp3", 1);
+var hakeem = new nonstop("sound/hakeemVoice.mp3", 1);
 
 
 
