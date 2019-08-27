@@ -30,7 +30,7 @@
 
 ## Obstacles and Challenges 
 * Login and Registration Page
-    *Trying to make sure it stores data in Postgresql.
+    * Trying to make sure it stores data in Postgresql.
   
 * Single Player Mode
     * Learning and Understanding Canvas
