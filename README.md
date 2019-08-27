@@ -16,7 +16,7 @@
 
 * Single Player Mode: Using Javascript Canvas to design a game where user can shoot down shapes.
 
-* Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. 
+* Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. Still a work in progress and 
 
 # How did we make it?
 
