@@ -3,7 +3,7 @@
 # Description
 * Planet of the Shapes is an Game Website that allow user to login and register into the site to play single and    multiplayer game modes. 
  
- * In single player mode, it allow a user to take off into the Battle Frontier. In the Battle Frontier, the user start off at level 1 and killing opposing enemy shapes to advance to higher levels. 
+ * In single player mode, it allow a user to take off into the Battle Frontier. In the Battle Frontier, the user start off at level 1 and killing opposing enemy shapes to stack up points to advance to higher levels. There is also a hidden level once a player used up all their lives in the game. 
 
  * In multiplayer mode, it allow a user to chat with other users. Each user can operate their own shape and move around the screen. 
 
@@ -36,6 +36,7 @@
     * Getting the Audio to function  Property
     *Game audio tend to keep playing when user dies.
     *Shapes in Canvas such as how to draw them and generate them on screen.
+    *Getting the score to display in the database and on screen. 
            
 * The Red Triangle ship 
     * trying to make it move. 
@@ -50,7 +51,11 @@
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
    
-   
+## How to Used the App?
+* Git Glone on terminal or Download
+* Then in the file type **npm install** on terminal
+* Then type **nodemon**
+* Then head to http://localhost:3000/
         
 ## Development Team  
 
