@@ -27,7 +27,7 @@
     //----------- Red Triangle SHip -----------//
     const ShipBlinkDur = 0.1; // duration in seconds of a single blink during ship's invisibility
     const selfDestruck = 0.3; // duration of the ship's explosion in seconds
-    var invisibility  = 5; // duration (0.4) of the ship's invisibility in seconds
+    var invisibility  = 0.4; // duration (0.4) of the ship's invisibility in seconds
     const shipSize = 30; // ship height in pixels
     const shipAccel = 5; // acceleration of the ship in pixels per second per second
     const turnSpeed = 360; // turn speed in degrees per second
