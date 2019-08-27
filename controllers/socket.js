@@ -1,5 +1,36 @@
 var players = {};
 var bullets = {};
+
+setInterval(()=>{
+    Object.entries(players).forEach((player)=>{
+        if(player[1].idle >= 20){
+            delete players[player[0]]
+        }else{
+            player[1].idle ++
+        }
+    })
+},1000)
+
+//move bullets
+setInterval(()=>{
+    Object.entries(bullets).forEach((bullet)=>{
+        moveBullet(bullet)
+        if(bullet[1].distance>=1000){
+            delete bullets[bullet[0]]
+        }
+    })
+},50)
+
+function moveBullet(bullet){
+    r_pos = bullet[1].angle;
+    x_origin = bullet[1].x_origin
+    y_origin = bullet[1].y_origin
+    
+
+    bullets[bullet[0]].x += 40 * Math.cos(r_pos)
+    bullets[bullet[0]].y += 40 * Math.sin(r_pos)
+    bullets[bullet[0]].distance = Math.sqrt((bullets[bullet[0]].x-x_origin)*(bullets[bullet[0]].x-x_origin)+(bullets[bullet[0]].y-y_origin)*(bullets[bullet[0]].y-y_origin))
+}
 exports = module.exports = function(io){
     io.on('connection',function(socket){
         
@@ -22,7 +53,7 @@ exports = module.exports = function(io){
         // socket.on('newGame',newGame);
       
         // socket.on('disconnect',disconnect)
-      
+        
         function broadcastMessageToServer(message){
             console.log(message)
           socket.broadcast.emit("sendMessage",message);
@@ -38,13 +69,13 @@ exports = module.exports = function(io){
                     bullets[bullet[0]] = bullet[1]
                 })
             }
-            socket.broadcast.emit('BulletList',bullets)
         }
         function trackPlayers(playerObj){
-            console.log(`player received`)
+            // console.log(players)
             Object.entries(JSON.parse(playerObj)).forEach((player)=>{
                 players[player[0]] = player[1]
             })
+            socket.broadcast.emit('BulletList',bullets)
             socket.broadcast.emit('PlayerList', players)
         }
 
