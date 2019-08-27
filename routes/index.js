@@ -26,7 +26,11 @@ router.get("/login", function(req, res, next) {
   res.render("login", { title: "Express" });
 });
 router.get("/single", function(req,res,next){
-  res.render('singlePlayerGame')
+ 
+  res.render('singlePlayerGame',
+  {playerName: req.session.displayname,
+   HighScore: req.session.HighScore 
+  })
 })
 
 router.get("/game", async function(req, res, next) {
