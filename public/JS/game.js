@@ -5,6 +5,8 @@ $(".play").click(function() {
   newGame();
 });
 
+
+
 // adding eventlisteners
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
