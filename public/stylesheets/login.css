@@ -1,44 +1,39 @@
-body{
-    background-image: url("../images/giphylogo.gif");
-    background-color: #cccccc;
-    display: inline-block;
-    
+body {
+  background-image: url("../images/giphylogo.gif");
+  background-color: #cccccc;
+  display: inline-block;
 }
 
-.container{
-    /* background-image: url("../images/Backgroun2.png.jpg"); */
-    background-color: transparent;
-    height: 400px;
-    width: 450px;
-    border-radius: 15%;
-    display: inline-block;
-    justify-self: center;
-    
+.container {
+  /* background-image: url("../images/Backgroun2.png.jpg"); */
+  background-color: transparent;
+  height: 400px;
+  width: 450px;
+  border-radius: 15%;
+  display: inline-block;
+  justify-self: center;
 }
-.login{
-    display: inline-block;
-    text-align: center;
-    position: absolute;
-    left: 38%;
-    top: 30%;
+.login {
+  display: inline-block;
+  position: absolute;
+  left: 38%;
+  top: 30%;
 }
-section{
-    display: inline-block;
-    text-align: center;
+section {
+  display: inline-block;
+  text-align: center;
 }
-h1{
-   
-    font-size: 40px;
+h1 {
+  font-size: 40px;
 }
-.text-h3{
-    font-size: 40px;
+.text-h3 {
+  font-size: 40px;
 }
-.form-control{
-    width: 65%;
-    padding: 5px;
-    
+.form-control {
+  width: 65%;
+  padding: 5px;
 }
-input[type=submit]{
-    width: 150px;
-    height: 200px;
+input[type="submit"] {
+  width: 150px;
+  height: 200px;
 }
