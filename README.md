@@ -1,5 +1,8 @@
 # Planet Of the Shapes
 
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/images/image9.gif"  width="100%" height="100%">
+
+
 # Description
 * Planet of the Shapes is an Game Website that allow user to login and register into the site to play single and    multiplayer game modes. 
  
