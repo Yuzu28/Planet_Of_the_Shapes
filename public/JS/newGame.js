@@ -6,7 +6,7 @@
         level = 0;
         lives = startingLife;
         score = 0;
-        invisibility = 0.4
+        invisibility = 0.5;
         shapeNum = 3;
         shapeSpeed = 100;
         ship = newShip();
@@ -26,11 +26,12 @@
 
     function bosslevel() {
         myy.stop(); ///stop the mission failed music
+        hakeem.play();
 
         level = 0;
-        lives = startingLife;
+        lives = 1;
         shapeNum = 100;
-        invisibility = 5; //stay alive for 5 seconds, life is never fair
+        invisibility = 20; //stay alive for 5 seconds, life is never fair
         shapeSpeed = 400;
         score = 0;
         ship = newShip();

@@ -11,9 +11,20 @@
   <body>
     <div class="leaderboard">
       <h1>
-        Leaderboards
+        Leaderboards <br />
+        <div class="menu-container">
+          <p class="name">Name</p>
+          <p class="score">Score</p>
+        </div>
       </h1>
-      <ol></ol>
+      <ol>
+        <% results.forEach((result,i)=>{ %>
+        <li>
+          <div><%= `${i+1}. ${result.displayname}` %></div>
+          <div><%= result.highscore %></div>
+        </li>
+        <% }) %>
+      </ol>
     </div>
   </body>
 </html>

@@ -1,9 +1,12 @@
 # Planet Of the Shapes
 
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/images/image9.gif"  width="100%" height="100%">
+
+
 # Description
 * Planet of the Shapes is an Game Website that allow user to login and register into the site to play single and    multiplayer game modes. 
  
- * In single player mode, it allow a user to take off into the Battle Frontier. In the Battle Frontier, the user start off at level 1 and killing opposing enemy shapes to advance to higher levels. 
+ * In single player mode, it allow a user to take off into the Battle Frontier. In the Battle Frontier, the user start off at level 1 and killing opposing enemy shapes to stack up points to advance to higher levels. There is also a hidden level once a player used up all their lives in the game. 
 
  * In multiplayer mode, it allow a user to chat with other users. Each user can operate their own shape and move around the screen. 
 
@@ -27,25 +30,16 @@
 | Postgresql | 
 | Socket io.| 
 
-## Single Player Mode
-
-* Single Player Mode GamePlay.  
-<img src="https://giphy.com/gifs/sacascafa-YnkGlX6AiSYg7jxn5B" width="100%" height="100%" />
-
-* There is a secret Level Call HELL MODE, once a user attempt at the Game. 
-<img src="https://giphy.com/gifs/kjsalaslka-KCvuXZkTmYT6JpFp5F" width="100%" height="100%" />
-
-
-
 ## Obstacles and Challenges 
 * Login and Registration Page
-    * Trying to make sure it stores data in Postgresql.
+    * Trying to make sure it stores data of username and password in Postgresql.
   
 * Single Player Mode
     * Learning and Understanding Canvas
     * Getting the Audio to function  Property
     *Game audio tend to keep playing when user dies.
     *Shapes in Canvas such as how to draw them and generate them on screen.
+    *Getting the score to display in the database and on screen. 
            
 * The Red Triangle ship 
     * trying to make it move. 
@@ -60,7 +54,11 @@
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
    
-   
+## How to Used the Website?
+* Git clone on terminal or Download
+* Then in the file type **npm install** on terminal
+* Then type **nodemon**
+* Then head to http://localhost:3000/
         
 ## Development Team  
 

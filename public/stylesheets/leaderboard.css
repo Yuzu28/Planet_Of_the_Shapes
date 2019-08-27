@@ -2,11 +2,7 @@ body {
   min-height: 450px;
   height: 100vh;
   margin: 0;
-  background: radial-gradient(
-    ellipse farthest-corner at center top,
-    #f39264 0%,
-    #f2606f 100%
-  );
+  background-image: url("../images/giphylogo.gif");
   color: #fff;
   font-family: "Open Sans", sans-serif;
   font-size: 25px;
@@ -20,15 +16,22 @@ Leaderboard
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 410px;
-  height: 410px;
+  width: 610px;
+  height: auto;
   background: linear-gradient(to top, Moccasin, goldenrod);
   border-radius: 20px;
   box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
+  padding: 10px;
+  text-align: center;
 }
-
-ol {
-  counter-reset: leaderboard;
+h2 {
+  display: block;
+  align-content: space-between;
+}
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
 }
 
 small {
@@ -39,12 +42,11 @@ small {
 }
 
 li {
+  display: flex;
+  /* list-style-type: default; */
   z-index: 2;
   overflow: visible;
-  display: flex;
   justify-content: space-between;
-}
-mark {
-  background-color: inherit;
-  color: white;
+  margin-right: 50px;
+  margin-bottom: 25px;
 }
