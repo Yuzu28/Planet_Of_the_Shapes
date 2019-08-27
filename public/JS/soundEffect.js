@@ -42,7 +42,7 @@ var lvl5 = new nonstop("sound/Music/Level 5.wav", 1, 0.4);
 // Main menu Music
 var lvl5 = new nonstop("sound/Music/Game Main.wav", 1, 0.4);
 
-var lvlMusic = [lvl1, lvl2, lvl3, lvl4, lvl5];
+const lvlMusic = [lvl1, lvl2, lvl3, lvl4, lvl5];
 
 //gameplay music
 //non ending loop for a sound track......use .pause() to stop the audio
