@@ -38,7 +38,7 @@ function SocketClient(){
   chatBox.submit(function(){
       //send this to the server
       //socket.emit("sendMessage",room,chat.val());
-      socket.emit("sendMessage",chat.val());
+      socket.emit("sendMessage",chat.val(), playerName);
       chat.val('');
       console.log('message sent')
       return false;
@@ -84,10 +84,10 @@ function SocketClient(){
   })
 
   //recieve message from other player
-  socket.on('sendMessage',function(message){
+  socket.on('sendMessage',function(message,user){
     console.log(`messageReceived`)
       var li = $('<li/>').append($('<p/>',{
-          text: message,
+          text: `${user}: ${message}`,
           class:"message sender-message"
       }))
       messages.append(li);

@@ -1,9 +1,14 @@
 <% include head %>
+<script>
+        var playerName = <%= user %>;
+    </script> 
+<script src="/script/socketIO.js "></script>
 
 <link rel="stylesheet" href="/stylesheets/chat.css">
 </head>
 <body>
-    
+    <div id="player_name_overlay">
+    </div>
     <canvas id="Server_view">
 </canvas>
 <form id="start_up_menu" class="hidden">
@@ -22,6 +27,7 @@
               <input id="chat" autocomplete="off" type="text"/><span></span><button type="submit">Send</button>
             </form>
         </div>
+
     <script src="/script/shapes.js"></script>
     <script src="/script/multiplayer.js "></script>
     <script src="/script/controls.js"></script>
