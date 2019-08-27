@@ -58,11 +58,7 @@
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
    
-## How to Used the Website?
-* Git clone on terminal or Download
-* Then in the file type **npm install** on terminal
-* Then type **nodemon**
-* Then head to http://localhost:3000/
+
         
 ## Development Team  
 
