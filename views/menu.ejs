@@ -1,34 +1,15 @@
 <% include head %>
 <link rel="stylesheet" href="/stylesheets/menu.css" />
 
-<section>
-  <div class="container">
-    <p class="text-h3"><%name%></p>
-  </div>
-  <div class="play">
-    <input
-      type="submit"
-      value="Solo Mode"
-      onclick="window.location='/single';"
-      class="btn"
-    />
-    <input
-      type="submit"
-      value="Multiplayer"
-      onclick="window.location='/game';"
-      class="btn "
-    />
-    <input
-      type="submit"
-      value="Logout"
-      onclick="window.location='/login';"
-      class="btn"
-    />
-    <input
-      type="submit"
-      value="LeaderBoard"
-      onclick="window.location='/Leaderboard';"
-      class="btn "
-    />
-  </div>
-</section>
+<div class="title">Hello, <%= name %> !</div>
+    <section>
+        <div class="container">
+        </div>
+              <div class="play">
+                  <input type="submit" value="Solo Mode" onclick="window.location='/single';" class="btn btn-primary mt-4"/>
+                  <input type="submit" value="Multiplayer" onclick="window.location='/game';" class="btn btn-primary mt-4"/>
+                  <input type="submit" value="Logout" onclick="window.location='/login';" class="btn btn-primary mt-4"/>
+                  <input type="submit" value="LeaderBoard" onclick="window.location='/Leaderboard';" class="btn btn-primary mt-4"/>
+                </div>
+
+      </section>
