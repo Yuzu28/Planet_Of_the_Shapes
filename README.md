@@ -1,6 +1,6 @@
 # Planet Of the Shapes
 
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/images/image9.gif"  width="100%" height="100%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/images/image9.gif"  width="70%" height="70%">
 
 
 # Description
@@ -21,22 +21,24 @@
 # Login and Registration Page
 
 * **Login Page:** First time when the user head to the page
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/login.png"  width="100%" height="100%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/login.png"  width="70%" height="70%">
 
 * **Registration Page:** If user don't have a account, they can make one.
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="100%" height="100%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="70%" height="70%">
 
 * **Menu Page:** After a user create an account and successfully login. They will be taken to a menu screen and welcome screen that uses the user's display name during registration.  
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png"  width="50%" height="50%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png"  width="70%" height="70%">
 https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png
 
 # GamePlay
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="100%" height="100%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="70%" height="70%">
+    * Try the hidden bonus level call HELL MODE ┌( ಠ‿ಠ)┘.
+
 
 
 # Leaderboard
 * The leaderboard keep tracks of high score of every users register onto the site in single mode only. 
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/score.png"  width="100%" height="100%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/score.png"  width="70%" height="70%">
 
 
 
