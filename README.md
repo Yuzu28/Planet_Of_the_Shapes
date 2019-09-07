@@ -26,8 +26,8 @@
 * **Registration Page:** If user don't have a account, they can make one.
 <img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="100%" height="100%">
 
-* **Menu Page:** After a user create an account and successfully login. They will be taken to a menu screen and welcome screen that uses the users display name during registration.  
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="100%" height="100%">
+* **Menu Page:** After a user create an account and successfully login. They will be taken to a menu screen and welcome screen that uses the user's display name during registration.  
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png"  width="50%" height="50%">
 https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png
 
 # GamePlay
