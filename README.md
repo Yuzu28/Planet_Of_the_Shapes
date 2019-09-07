@@ -28,7 +28,7 @@
 
 * **Menu Page:** After a user create an account and successfully login. They will be taken to a menu screen and welcome screen that uses the user's display name during registration.  
 <img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png"  width="70%" height="70%">
-https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png
+
 
 # GamePlay
 <img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="70%" height="70%">
@@ -78,7 +78,6 @@ https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png
     * Chat box seems to operate propertly but text flow out of the box. 
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
-   
 
         
 ## Development Team  
