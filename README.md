@@ -10,10 +10,6 @@
 
  * In multiplayer mode, it allow a user to chat with other users. Each user can operate their own shape and move around the screen. 
  
-# GamePlay
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="100%" height="100%">
-
-
 # Goals
 
 * Login, Menu, and Register Page: Understanding and using express to create routes and storing data in databases. 
@@ -21,6 +17,29 @@
 * Single Player Mode: Using Javascript Canvas to design a game where user can shoot down shapes.
 
 * Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. Still a work in progress.
+
+# Login and Registration Page
+
+* **Login Page:** First time when the user head to the page
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/login.png"  width="100%" height="100%">
+
+* **Registration Page:** If user don't have a account, they can make one.
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="100%" height="100%">
+
+* **Menu Page:** After a user create an account and successfully login. They will be taken to a menu screen and welcome screen that uses the users display name during registration.  
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="100%" height="100%">
+https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png
+
+# GamePlay
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="100%" height="100%">
+
+
+# Leaderboard
+* The leaderboard keep tracks of high score of every users register onto the site in single mode only. 
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/score.png"  width="100%" height="100%">
+
+
+
 
 # How did we make it?
 
