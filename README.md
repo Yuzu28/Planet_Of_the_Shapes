@@ -82,8 +82,8 @@
 ## How to use it ? 
 * Git clone or download the repository.
 * On terminal, **cd** into the repository.
-* Then run **npm install **
-* Then run **nodemon **
+* Then run **npm install**
+* Then run **nodemon**
 * Then in the browser type http://localhost:3000 to start playing. 
   
 ## Development Team  
