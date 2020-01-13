@@ -36,3 +36,33 @@ h1{
 .form-control{
     width: 65%;
 }
+
+
+a{
+    margin-top: 10% !important;
+    text-decoration: none;
+    color: white;
+    padding: 2%;
+  
+  }
+  
+  a:hover{
+    color: greenyellow;
+  }
+  
+  .rrr{
+    margin-top: 5%;
+
+
+   
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 4px ;
+        /* text-align: center; */
+        text-decoration: none;
+        display: inline-block;
+        /* font-size: 16px; */
+      
+  }
+  
