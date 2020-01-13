@@ -10,13 +10,23 @@
 
   <body>
     <div class="leaderboard">
+      <!-- <a href="window.location='/menu';">Return To Menu</a> -->
+      <input type="submit" value="Return to Menu" onclick="window.location='/menu';" class="myButton"/>
+
       <h1>
+        <br />
         Leaderboards <br />
-        <h2>Name Score</h2>
+        <div class="menu-container">
+          <p class="name">Name</p>
+          <p class="score">Score</p>
+        </div>
       </h1>
       <ol>
-        <% results.forEach((result)=>{ %>
-        <li><%= result.displayname %> <%= result.highscore %></li>
+        <% results.forEach((result,i)=>{ %>
+        <li>
+          <div><%= `${i+1}. ${result.displayname}` %></div>
+          <div><%= result.highscore %></div>
+        </li>
         <% }) %>
       </ol>
     </div>

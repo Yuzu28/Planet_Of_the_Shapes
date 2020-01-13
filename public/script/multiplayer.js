@@ -22,6 +22,15 @@ let canvas = document.getElementById('Server_view');
 let overlay = document.body
 let ctx = canvas.getContext('2d');
 let startMenu = document.getElementById('start_up_menu');
+let nameOverlay = document.getElementById('player_name_overlay');
+
+function nameFollow(player){
+    var x = player.x;
+    var y = player.y;
+
+    nameOverlay.style.top = y;
+    nameOverlay.style.left = x;
+}
 function checkPlayer(player){
     if(player){
         if(startMenu.classList.contains('hidden')){}else{startMenu.classList.add('hidden')}
@@ -46,7 +55,7 @@ var init = function() {
     
     var players = {};
     var bullets = {};
-    var playerName= playerName || `Guest${Math.random()*10}${Math.random()*10}${Math.random()*10}`;
+    playerName= playerName || `Guest${Math.random()*10}${Math.random()*10}${Math.random()*10}`;
     var player = new playerShape(150,150,100,playerName);
     
     // startMenu.submit()
@@ -127,6 +136,7 @@ var init = function() {
         // context.drawImage(theHero, theHeroLoc.x, theHeroLoc.y);
         // bullet.x++
         checkPlayer(player)
+        nameFollow(player)
         requestAnimationFrame(draw)
     }
     draw()

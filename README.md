@@ -1,6 +1,6 @@
 # Planet Of the Shapes
 
-<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/images/image9.gif"  width="100%" height="100%">
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/images/image9.gif"  width="70%" height="70%">
 
 
 # Description
@@ -9,14 +9,39 @@
  * In single player mode, it allow a user to take off into the Battle Frontier. In the Battle Frontier, the user start off at level 1 and killing opposing enemy shapes to stack up points to advance to higher levels. There is also a hidden level once a player used up all their lives in the game. 
 
  * In multiplayer mode, it allow a user to chat with other users. Each user can operate their own shape and move around the screen. 
-
+ 
 # Goals
 
 * Login, Menu, and Register Page: Understanding and using express to create routes and storing data in databases. 
 
 * Single Player Mode: Using Javascript Canvas to design a game where user can shoot down shapes.
 
-* Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. 
+* Multiplayer Mode: Using Socket io. to create live servers and a online chat box to chat with other users. Still a work in progress.
+
+# Login and Registration Page
+
+* **Login Page:** First time when the user head to the page
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/login.png"  width="70%" height="70%">
+
+* **Registration Page:** If user don't have a account, they can make one.
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/register.png"  width="70%" height="70%">
+
+* **Menu Page:** After a user create an account and successfully login. They will be taken to a menu screen and welcome screen that uses the user's display name during registration.  
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/menu.png"  width="70%" height="70%">
+
+
+# GamePlay
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/main.gif"  width="70%" height="70%">
+    * Try the hidden bonus level call HELL MODE ┌( ಠ‿ಠ)┘.
+
+
+
+# Leaderboard
+* The leaderboard keep tracks of high score of every users register onto the site in single mode only. 
+<img src="https://github.com/Yuzu28/Planet_Of_the_Shapes/blob/master/public/img/score.png"  width="70%" height="70%">
+
+
+
 
 # How did we make it?
 
@@ -32,7 +57,7 @@
 
 ## Obstacles and Challenges 
 * Login and Registration Page
-    * Trying to make sure it stores data in Postgresql.
+    * Trying to make sure it stores data of username and password in Postgresql.
   
 * Single Player Mode
     * Learning and Understanding Canvas
@@ -53,13 +78,14 @@
     * Chat box seems to operate propertly but text flow out of the box. 
     * Most problem were the same as single players such a shape movements.
     * It is still a work in progress...................
-   
-## How to Used the App?
-* Git Glone on terminal or Download
-* Then in the file type **npm install** on terminal
-* Then type **nodemon**
-* Then head to http://localhost:3000/
-        
+
+## How to use it ? 
+* Git clone or download the repository.
+* On terminal, **cd** into the repository.
+* Then run **npm install**
+* Then run **nodemon**
+* Then in the browser type http://localhost:3000 to start playing. 
+  
 ## Development Team  
 
 | Contributors  | 

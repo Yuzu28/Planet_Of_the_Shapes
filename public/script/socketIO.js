@@ -38,7 +38,7 @@ function SocketClient(){
   chatBox.submit(function(){
       //send this to the server
       //socket.emit("sendMessage",room,chat.val());
-      socket.emit("sendMessage",chat.val());
+      socket.emit("sendMessage",`${playerName}: ${chat.val()}`);
       chat.val('');
       console.log('message sent')
       return false;
