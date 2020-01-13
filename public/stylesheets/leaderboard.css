@@ -2,7 +2,8 @@ body {
   min-height: 450px;
   height: 100vh;
   margin: 0;
-  background-image: url("../images/giphylogo.gif");
+  background-color: black;
+  /* background-image: url("../images/giphylogo.gif"); */
   color: #fff;
   font-family: "Open Sans", sans-serif;
   font-size: 25px;
