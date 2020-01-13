@@ -1,7 +1,25 @@
 body {
-  background-image: url("../images/giphylogo.gif");
+  height: 100%;
+
+  background-image: url("../images/shapess.jpg");
+
+
+  /* background-position: center !important; 
+  background-repeat: no-repeat !important;
+   background-size: cover !important; */
+
+
   background-color: #cccccc;
-  display: inline-block;
+  /* display: inline-block; */
+}
+
+p{
+  color: black !important;
+  border: 3px solid black;
+
+    box-shadow: 10px 10px;
+    background-color: white;
+    padding: 3%;
 }
 
 .container {
@@ -25,6 +43,7 @@ section {
 }
 h1 {
   font-size: 40px;
+  color: whitesmoke;
 }
 .text-h3 {
   font-size: 40px;
@@ -36,4 +55,20 @@ h1 {
 input[type="submit"] {
   width: 150px;
   height: 200px;
+}
+
+a{
+  margin-top: 10% !important;
+  text-decoration: none;
+  color: white;
+  padding: 2%;
+
+}
+
+a:hover{
+  color: greenyellow;
+}
+
+.rrr{
+  margin-top: 5%;
 }
