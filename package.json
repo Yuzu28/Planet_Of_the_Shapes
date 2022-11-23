@@ -19,6 +19,6 @@
     "nodemon": "^1.19.1",
     "pg-promise": "^9.0.3",
     "request": "^2.88.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.5.0"
   }
 }
